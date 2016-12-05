@@ -1,4 +1,4 @@
-package ua.kiev.police;
+package ua.kiev.police.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
