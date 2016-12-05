@@ -36,6 +36,7 @@ public class PersonDao {
         personList.add(person3);
 
 
+        patrolCar = new PatrolCar("Dodge-0066W");
         patrolCar.addPersonInCar(person1);
         patrolCar.addPersonInCar(person2);
 

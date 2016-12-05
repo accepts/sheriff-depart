@@ -2,13 +2,14 @@ package ua.kiev.police.model;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PatrolCar {
     private String name;
     private MultipartFile carImage;
     private List<Person> personsInCar;
-    private int carCapacity;
+    private int carCapacity = 0;
 
     public PatrolCar() {
     }
@@ -56,15 +57,20 @@ public class PatrolCar {
     // Addition methods
 
     public void addPersonInCar(Person person){
+        if (personsInCar == null){
+            this.personsInCar = new ArrayList<Person>();
+        }
         personsInCar.add(person);
         person.setIsInCar(true);
-        this.carCapacity = carCapacity++;
+        carCapacity = carCapacity + 1;
+        System.out.println("<----Car Capacity (ADD):" + carCapacity);
     }
 
     public void removePersonFromCar(Person person){
         personsInCar.remove(person);
         person.setIsInCar(false);
-        this.carCapacity = carCapacity--;
+        carCapacity = carCapacity - 1;
+        System.out.println("<----Car Capacity (REMOVE):" + carCapacity);
     }
 
 }
