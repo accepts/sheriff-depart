@@ -3,11 +3,14 @@ package ua.kiev.police.dao;
 import ua.kiev.police.model.PatrolCar;
 import ua.kiev.police.model.Person;
 import ua.kiev.police.model.enums.Range;
+import ua.kiev.police.util.LoggerWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PersonDao {
+
+    protected static final LoggerWrapper LOG = LoggerWrapper.get(PersonDao.class);
 
     private PatrolCar patrolCar;
 
@@ -34,11 +37,13 @@ public class PersonDao {
         person3.setLastName("Bell");
         person3.setRange(Range.SHERIFF);
         personList.add(person3);
+        LOG.info("adding all persons into personList: {} \n", person1);
 
 
         patrolCar = new PatrolCar("Dodge-0066W");
         patrolCar.addPersonInCar(person1);
         patrolCar.addPersonInCar(person2);
+        LOG.info("adding patrolCar: {} \n", patrolCar);
 
         return personList;
     }
@@ -48,25 +53,3 @@ public class PersonDao {
         return patrolCar;
     }
 }
-
-/*
-    private List<Product> productList;
-
-    public List<Product> getProductList() {
-        productList = new ArrayList<Product>();
-
-        Product product1 = new Product();
-        product1.setProductName("Guitar");
-        product1.setProductCategory("Instruments");
-        product1.setProductDescription("This is a fender stratocaster guitar!");
-        product1.setProductPrice(1200);
-        product1.setProductCondition("new");
-        product1.setProductStatus("Active");
-        product1.setUnitInStock(11);
-        product1.setProductManufacturer("Fender");
-        productList.add(product1);
-
-        return productList;
-    }
-
- */

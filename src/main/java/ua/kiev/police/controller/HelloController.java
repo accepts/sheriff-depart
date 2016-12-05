@@ -8,12 +8,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import ua.kiev.police.dao.PersonDao;
 import ua.kiev.police.model.PatrolCar;
 import ua.kiev.police.model.Person;
+import ua.kiev.police.util.LoggerWrapper;
 
 import java.util.List;
 
 @Controller
 @RequestMapping("/")
 public class HelloController {
+
+	protected static final LoggerWrapper LOG = LoggerWrapper.get(HelloController.class);
 
 	private PersonDao personDao = new PersonDao();
 
@@ -30,14 +33,17 @@ public class HelloController {
 		List<Person> personList = personDao.getPersonList();
 		model.addAttribute("personList", personList);
 
+		PatrolCar patrolCar = personDao.getPatrolCar();
+		model.addAttribute("patrolCar", patrolCar);
+
 		Person person2 = personList.get(2);
 		model.addAttribute("person2", person2);
 
 		Person person1 = personList.get(1);
 		model.addAttribute("person1", person1);
 
-		PatrolCar patrolCar = personDao.getPatrolCar();
-		model.addAttribute("patrolCar", patrolCar);
+
+		LOG.info("Controller /test method is used: ", patrolCar);
 		return "testingModel";
 	}
 
