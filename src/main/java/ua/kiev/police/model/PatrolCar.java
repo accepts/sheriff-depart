@@ -10,6 +10,7 @@ public class PatrolCar {
     private MultipartFile carImage;
     private List<Person> personsInCar;
     private int carCapacity = 0;
+    private String description;
 
     public PatrolCar() {
     }
@@ -18,8 +19,21 @@ public class PatrolCar {
         this.name = name;
     }
 
+    public PatrolCar(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     // Getters + Setters
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getName() {
         return name;

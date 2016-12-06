@@ -6,9 +6,9 @@ import org.slf4j.LoggerFactory;
 
 /*
 Example of usage:
-protected static final LoggerWrapper LOG = LoggerWrapper.get(PersonDao.class);
+protected static final LoggerWrapper LOG = LoggerWrapper.get(XXXXX.class);
 
-LOG.info("adding all persons into personList: {} \n", person1);
+LOG.info("Some info: {} \n", objectForPrint);
  */
 public class LoggerWrapper {
 

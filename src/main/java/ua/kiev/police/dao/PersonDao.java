@@ -43,6 +43,7 @@ public class PersonDao {
         patrolCar = new PatrolCar("Dodge-0066W");
         patrolCar.addPersonInCar(person1);
         patrolCar.addPersonInCar(person2);
+        patrolCar.setDescription("Fast as a shark, it' come out from the dark ");
         LOG.info("adding patrolCar: {} \n", patrolCar);
 
         return personList;

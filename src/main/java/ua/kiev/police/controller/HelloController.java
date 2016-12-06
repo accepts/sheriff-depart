@@ -24,7 +24,21 @@ public class HelloController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 		model.addAttribute("message", "Hello Police Department!");
-		return "hello";
+
+		List<Person> personList = personDao.getPersonList();
+		model.addAttribute("personList", personList);
+
+		PatrolCar patrolCar = personDao.getPatrolCar();
+		model.addAttribute("patrolCar", patrolCar);
+
+		Person person2 = personList.get(2);
+		model.addAttribute("person2", person2);
+
+		Person person1 = personList.get(1);
+		model.addAttribute("person1", person1);
+
+		LOG.info("Controller /test method is used: ", patrolCar);
+		return "home";
 	}
 
 
@@ -47,6 +61,12 @@ public class HelloController {
 		return "testingModel";
 	}
 
+
+	@RequestMapping("/person")
+	public String personView(Model model){
+
+		return "personView";
+	}
 
 
 
