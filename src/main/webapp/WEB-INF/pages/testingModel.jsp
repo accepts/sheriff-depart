@@ -41,7 +41,7 @@
                 <td>${person2.inCar}</td>
             </tr>
         </table>
-
+<%--
         -----------Car info -------------- <br/>
 
         <table BORDER>
@@ -137,7 +137,7 @@
                     <td>${personsInCar.rank}</td>
                 </tr>
             </c:forEach>
-        </table>
+        </table>--%>
 
 
         <br/><br/><br/>

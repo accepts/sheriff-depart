@@ -27,7 +27,7 @@
         <td>${person.lastName}</td>
         <td>${person.rank}</td>
         <%--<td><a href="<c:url value="/persons/viewPerson/person001"/>" ><span class="glyphicon glyphicon-info-sign"></span></a></td>--%>
-        <td><a href="<spring:url value="/viewPerson/${person.personId}"/> " ><span class="glyphicon glyphicon-info-sign"></span></a></td>
+        <td><a href="<spring:url value="/personView/${person.personId}"/> " ><span class="glyphicon glyphicon-info-sign"></span></a></td>
       </tr>
     </c:forEach>
   </table>

@@ -93,7 +93,8 @@
             <%--Table of police patrol--%>
 
 
-            <table class="table table-bordered">
+<%--
+<table class="table table-bordered">
                 <tr>
                     <td>${patrolCar.name}</td>
                     <td rowspan="4">
@@ -127,6 +128,8 @@
                     <td>${patrolCar.description}</td>
                 </tr>
             </table>
+
+            --%>
 
     <br/>
 
