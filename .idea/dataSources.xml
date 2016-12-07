@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="4024937480">
+    <data-source source="LOCAL" name="PostgreSQL - police-patrol@localhost" uuid="81f111d9-c653-47bd-bfbf-01da06a475a5">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/police-patrol</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>

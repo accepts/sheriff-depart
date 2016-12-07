@@ -55,7 +55,7 @@
                 <li><a href="#">Export</a></li>
             </ul>
         </div>--%>
-
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
 <%@include file="/WEB-INF/pages/template/header.jsp"%>
 
 
@@ -65,9 +65,12 @@
 
             <div class="row placeholders">
                 <div class="col-xs-6 col-sm-3 placeholder">
+                    <a href="<c:url value="/persons"/>">
                     <img src="resources/images/dispatcher.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Dispatcher</h4>
+                    </a>
+                        <h4>Dispatcher</h4>
                     <span class="text-muted">Board of all personal on patrol car and moving on foot.</span>
+
                 </div>
                 <div class="col-xs-6 col-sm-3 placeholder">
                     <img src="resources/images/sheriff.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
@@ -108,7 +111,7 @@
                                 </tr>
                                 <tr>
                                     <td class="bg-danger">Range:</td>
-                                    <td >${personsInCar.range}</td>
+                                    <td >${personsInCar.rank}</td>
                                 </tr>
                             </c:forEach>
                         </table>
@@ -146,78 +149,3 @@
 
 </body>
 </html>--%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%--          <h2 class="sub-header">Section title</h2>
-          <div class="table-responsive">
-              <table class="table table-striped">
-                  <thead>
-                  <tr>
-                      <th>#</th>
-                      <th>Header</th>
-                      <th>Header</th>
-                      <th>Header</th>
-                      <th>Header</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                      <td>1,001</td>
-                      <td>Lorem</td>
-                      <td>ipsum</td>
-                      <td>dolor</td>
-                      <td>sit</td>
-                  </tr>
-                  <tr>
-                      <td>1,002</td>
-                      <td>amet</td>
-                      <td>consectetur</td>
-                      <td>adipiscing</td>
-                      <td>elit</td>
-                  </tr>
-                  <tr>
-                      <td>1,003</td>
-                      <td>Integer</td>
-                      <td>nec</td>
-                      <td>odio</td>
-                      <td>Praesent</td>
-                  </tr>
-                  <tr>
-                      <td>1,003</td>
-                      <td>libero</td>
-                      <td>Sed</td>
-                      <td>cursus</td>
-                      <td>ante</td>
-                  </tr>
-                  <tr>
-                      <td>1,004</td>
-                      <td>dapibus</td>
-                      <td>diam</td>
-                      <td>Sed</td>
-                      <td>nisi</td>
-                  </tr>
-
-
-                  </tbody>
-              </table>
-          </div>--%>

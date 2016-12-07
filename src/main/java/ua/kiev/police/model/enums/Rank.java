@@ -1,7 +1,7 @@
 
 package ua.kiev.police.model.enums;
 
-public enum Range {
+public enum Rank {
     OFFICER("Офицер"),
     DETECTIVE("Детектив"),
     SERGEANT("Сержант"),
@@ -13,7 +13,7 @@ public enum Range {
 
     private String title;
 
-    Range(String title) {
+    Rank(String title) {
         this.title = title;
     }
 
@@ -21,7 +21,7 @@ public enum Range {
         return title;
     }
 
-    public static Range[] VALUES = Range.values();
+    public static Rank[] VALUES = Rank.values();
 
 }
 

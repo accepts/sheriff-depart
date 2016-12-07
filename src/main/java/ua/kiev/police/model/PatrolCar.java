@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PatrolCar {
+    private String carId;
     private String name;
     private MultipartFile carImage;
     private List<Person> personsInCar;
@@ -26,6 +27,14 @@ public class PatrolCar {
 
     // Getters + Setters
 
+
+    public String getCarId() {
+        return carId;
+    }
+
+    public void setCarId(String carId) {
+        this.carId = carId;
+    }
 
     public String getDescription() {
         return description;
@@ -77,14 +86,12 @@ public class PatrolCar {
         personsInCar.add(person);
         person.setIsInCar(true);
         carCapacity = carCapacity + 1;
-        System.out.println("<----Car Capacity (ADD):" + carCapacity);
     }
 
     public void removePersonFromCar(Person person){
         personsInCar.remove(person);
         person.setIsInCar(false);
         carCapacity = carCapacity - 1;
-        System.out.println("<----Car Capacity (REMOVE):" + carCapacity);
     }
 
 }

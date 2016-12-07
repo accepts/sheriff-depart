@@ -1,13 +1,10 @@
 <%@include file="/WEB-INF/pages/template/header.jsp"%>
 
-<%--<div class="container">
 
-  Person View
-</div>--%>
+<h3>${person.firstName}</h3>
+<h3>${person.lastName}</h3>
 
-<%--<div class="container-wrapper">
-  <div class="container">--%>
-    <div class="page-header">
+<%--    <div class="page-header">
       <h1>Person detail</h1>
 
       <p class="lead">Here is detail information about the person!</p>
@@ -21,18 +18,20 @@
         </div>
 
         <div class="col-md-6">
-          <h3>Product name</h3>
-          <p>Product description</p>
-          <p>Manufacturer</p>
-          <p>Category</p>
-          <p>Condition</p>
-          <p>Price</p>
+          <h3>${person.firstName}</h3>
+          <h3>${person.lastName}</h3>
+          <p>
+            <strong>Rank:</strong> ${person.rank}
+          </p>
+          <p>
+            <strong>Wheel patrol: </strong>${person.inCar}
+          </p>
+
+
         </div>
 
       </div>
-    </div>
-
-
+    </div>--%>
 
 
 <%@include file="/WEB-INF/pages/template/footer.jsp"%>

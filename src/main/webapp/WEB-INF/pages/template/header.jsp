@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +57,7 @@
       <ul class="nav nav-sidebar">
         <li ><a href="<c:url value="/"/>">Home </a></li>
         <li><a href="<c:url value="/test"/>">TESTING</a></li>
-        <li><a href="<c:url value="/person"/>">Person</a></li>
+        <li><a href="<c:url value="/persons"/>">Persons</a></li>
         <li><a href="#">3333</a></li>
       </ul>
     </div>

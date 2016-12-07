@@ -1,35 +1,43 @@
 package ua.kiev.police.model;
 
 import org.springframework.web.multipart.MultipartFile;
-import ua.kiev.police.model.enums.Range;
+import ua.kiev.police.model.enums.Rank;
 
 public class Person{
-
+    private String personId;
     private String firstName;
     private String lastName;
-    private Range range;
+    private Rank rank;
     private boolean isInCar;
     private MultipartFile personImage;
 
     public Person() {
     }
 
-    public Person(String firstName, String lastName, Range range) {
+    public Person(String firstName, String lastName, Rank rank) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.range = range;
+        this.rank = rank;
     }
 
-    public Person(String firstName, String lastName, Range range, boolean isInCar, MultipartFile personImage) {
+    public Person(String firstName, String lastName, Rank rank, boolean isInCar, MultipartFile personImage) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.range = range;
+        this.rank = rank;
         this.isInCar = isInCar;
         this.personImage = personImage;
     }
 
     //    Getter + Setter
 
+
+    public String getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(String personId) {
+        this.personId = personId;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -47,12 +55,12 @@ public class Person{
         this.lastName = lastName;
     }
 
-    public Range getRange() {
-        return range;
+    public Rank getRank() {
+        return rank;
     }
 
-    public void setRange(Range range) {
-        this.range = range;
+    public void setRank(Rank rank) {
+        this.rank = rank;
     }
 
     public boolean isInCar() {
