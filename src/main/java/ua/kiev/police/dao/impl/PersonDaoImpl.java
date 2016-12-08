@@ -26,7 +26,7 @@ public class PersonDaoImpl implements PersonDao {
     }
 
     @Override
-    public Person getPersonById(String id) {
+    public Person getPersonById(int id) {
         Session session = sessionFactory.getCurrentSession();
         Person person = (Person) session.get(Person.class, id);
         return person;
@@ -42,9 +42,17 @@ public class PersonDaoImpl implements PersonDao {
     }
 
     @Override
-    public void deletePerson(String id) {
+    public void deletePerson(int id) {
         Session session = sessionFactory.getCurrentSession();
         session.delete(getPersonById(id));
+    }
+
+    @Override
+    public void editPerson(Person person) {
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(person);
+        session.flush();
+
     }
 }
 

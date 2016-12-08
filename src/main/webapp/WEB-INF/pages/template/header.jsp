@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +12,9 @@
   <title>Index</title>
 
   <!-- CSS -->
-  <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-  <link href="resources/css/dashboard.css" rel="stylesheet">
+  <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
+  <link href="<c:url value="/resources/css/dashboard.css" />" rel="stylesheet">
+  <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 
 
 </head>
@@ -34,9 +34,9 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><a href="<c:url value="/"/>">Home</a></li>
+        <li><a href="<c:url value="/persons"/>">List of Persons</a></li>
+        <li><a href="<c:url value="/admin"/>">Admin</a></li>
         <li><a href="#">Help</a></li>
       </ul>
       <%--
@@ -51,13 +51,14 @@
   </div>
 </nav>
 
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
         <li ><a href="<c:url value="/"/>">Home </a></li>
-        <li><a href="<c:url value="/test"/>">TESTING</a></li>
-        <li><a href="<c:url value="/persons"/>">Persons</a></li>
+        <li><a href="<c:url value="/admin"/>">Admin</a></li>
+        <li><a href="<c:url value="/persons"/>">PersonList</a></li>
         <li><a href="#">3333</a></li>
       </ul>
     </div>

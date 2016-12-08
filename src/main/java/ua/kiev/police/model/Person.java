@@ -1,32 +1,64 @@
 package ua.kiev.police.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 import ua.kiev.police.model.enums.Rank;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 @Entity
 public class Person{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String personId;
+    private int personId;
 
+    @NotEmpty(message = "First Name can't be empty!")
     private String firstName;
+
+    @NotEmpty(message = "Last Name can't be empty!")
     private String lastName;
+
     private Rank rank;
+
     private boolean isInCar;
-//    private MultipartFile personImage;
+
+    @Column(columnDefinition="TEXT")
+    private String characteristic;
+
+    @Min(value = 18, message = "Person too young for working")
+    @Max(value = 65, message = "Person too old for work")
+    private int age;
+
+    @Transient
+    private MultipartFile personImage;
 
     //    Getter + Setter
 
-    public String getPersonId() {
+
+    public String getCharacteristic() {
+        return characteristic;
+    }
+
+    public void setCharacteristic(String characteristic) {
+        this.characteristic = characteristic;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getPersonId() {
         return personId;
     }
 
-    public void setPersonId(String personId) {
+    public void setPersonId(int personId) {
         this.personId = personId;
     }
 
@@ -62,4 +94,11 @@ public class Person{
         this.isInCar = isInCar;
     }
 
+    public MultipartFile getPersonImage() {
+        return personImage;
+    }
+
+    public void setPersonImage(MultipartFile personImage) {
+        this.personImage = personImage;
+    }
 }

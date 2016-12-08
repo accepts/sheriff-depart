@@ -2,14 +2,14 @@
 package ua.kiev.police.model.enums;
 
 public enum Rank {
-    OFFICER("Офицер"),
-    DETECTIVE("Детектив"),
-    SERGEANT("Сержант"),
-    LIEUTENANT("Лейтенант"),
-    CAPTAIN("Капитан"),
-    MAJOR("Майор"),
-    COLONEL("Полковник"),
-    SHERIFF("Шериф");
+    OFFICER("Officer"),
+    DETECTIVE("Detective"),
+    SERGEANT("Sergeant"),
+    LIEUTENANT("Lieutenant"),
+    CAPTAIN("Captain"),
+    MAJOR("Major"),
+    COLONEL("Colonel"),
+    SHERIFF("Sheriff");
 
     private String title;
 
@@ -22,6 +22,13 @@ public enum Rank {
     }
 
     public static Rank[] VALUES = Rank.values();
+
+
+    public String getValue() {
+        return name();
+    }
+
+    public void setValue(String value) {}
 
 }
 

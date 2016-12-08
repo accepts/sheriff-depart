@@ -1,0 +1,23 @@
+.table{
+    table-layout: fixed;
+    overflow: auto;
+}
+
+.table th{
+    text-align: center;
+}
+
+.table td{
+    text-align: center;
+    background: whitesmoke;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*
+http://stackoverflow.com/questions/3029422/how-do-i-auto-resize-an-image-to-fit-a-div-container
+<img style='height: 100%; width: 100%; object-fit: contain'/>
+http://stackoverflow.com/questions/12991351/css-force-image-resize-and-keep-aspect-ratio
+
+*/

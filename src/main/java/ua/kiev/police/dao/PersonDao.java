@@ -6,13 +6,8 @@ import java.util.List;
 
 public interface PersonDao {
     void addPerson(Person person);
-    Person getPersonById(String id);
+    Person getPersonById(int id);
     List<Person> getAllPersons();
-    void deletePerson(String id);
+    void deletePerson(int id);
+    void editPerson(Person person);
 }
-
-
-/*    void addProduct(Product product);
-    Product getProductById(String id);
-    List<Product> getAllProducts();
-    void deleteProducts(String id);*/
