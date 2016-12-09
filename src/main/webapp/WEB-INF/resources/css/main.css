@@ -15,6 +15,18 @@
     white-space: nowrap;
 }
 
+.login-box{
+    text-align: center;
+}
+
+.login-container{
+    width: 50%;
+    margin: auto;
+    margin-top: 80px;
+}
+
+
+
 /*
 http://stackoverflow.com/questions/3029422/how-do-i-auto-resize-an-image-to-fit-a-div-container
 <img style='height: 100%; width: 100%; object-fit: contain'/>
