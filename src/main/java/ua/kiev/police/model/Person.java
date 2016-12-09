@@ -35,6 +35,8 @@ public class Person{
     @Transient
     private MultipartFile personImage;
 
+//    private PatrolCar car;
+
     //    Getter + Setter
 
 

@@ -22,14 +22,14 @@
       <th>Detail</th>
     </tr>
     </thead>
-    <c:forEach items="${personList}" var="person">
+    <c:forEach items="${personList}" var="car">
       <tr>
-        <td><img src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image" style="width: 30%; height: auto"/> </td>
-        <td>${person.firstName}</td>
-        <td>${person.lastName}</td>
-        <td>${person.rank}</td>
+        <td><img src="<c:url value="/resources/photo_person/${car.personId}.png" /> " alt="image" style="width: 30%; height: auto"/> </td>
+        <td>${car.firstName}</td>
+        <td>${car.lastName}</td>
+        <td>${car.rank}</td>
         <%--<td><a href="<c:url value="/persons/viewPerson/person001"/>" ><span class="glyphicon glyphicon-info-sign"></span></a></td>--%>
-        <td><a href="<spring:url value="/personView/${person.personId}"/> " ><span class="glyphicon glyphicon-info-sign"></span></a></td>
+        <td><a href="<spring:url value="/personView/${car.personId}"/> " ><span class="glyphicon glyphicon-info-sign"></span></a></td>
       </tr>
     </c:forEach>
   </table>

@@ -3,7 +3,7 @@
 
 <div class="page-header">
     <h1>Officer detail</h1>
-    <p class="lead">Here is list of all person in department.</p>
+    <p class="lead">Detail person information.</p>
 </div>
 
 <div class="container col-md-10">

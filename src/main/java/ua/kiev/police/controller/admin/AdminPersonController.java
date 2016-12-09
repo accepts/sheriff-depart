@@ -1,4 +1,4 @@
-package ua.kiev.police.controller;
+package ua.kiev.police.controller.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,19 +24,14 @@ import java.nio.file.Paths;
 import java.util.List;
 
 @Controller
-public class AdminController {
+public class AdminPersonController {
 
-    protected static final LoggerWrapper LOG = LoggerWrapper.get(HomeController.class);
+    protected static final LoggerWrapper LOG = LoggerWrapper.get(AdminPersonController.class);
 
     private Path path;
 
     @Autowired
     private PersonService personService;
-
-    @RequestMapping("/admin")
-    public String adminPage(){
-        return "admin";
-    }
 
 
     @RequestMapping("/admin/personInventory")

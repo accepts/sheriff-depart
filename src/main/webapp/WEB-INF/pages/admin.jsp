@@ -23,7 +23,11 @@
   <h3>
     <a href="<c:url value="/admin/personInventory"/> " >Person inventory </a>
   </h3>
+<br/>
 
+  <h3>
+    <a href="<c:url value="/admin/carInventory"/> " >Car inventory </a>
+  </h3>
 
 
 
