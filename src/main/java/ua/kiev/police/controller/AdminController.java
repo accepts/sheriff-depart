@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
-import ua.kiev.police.dao.PersonDao;
 import ua.kiev.police.model.Person;
 import ua.kiev.police.model.enums.Rank;
+import ua.kiev.police.service.PersonService;
 import ua.kiev.police.util.LoggerWrapper;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,13 +26,12 @@ import java.util.List;
 @Controller
 public class AdminController {
 
-
-    protected static final LoggerWrapper LOG = LoggerWrapper.get(HelloController.class);
+    protected static final LoggerWrapper LOG = LoggerWrapper.get(HomeController.class);
 
     private Path path;
 
     @Autowired
-    private PersonDao personDao;
+    private PersonService personService;
 
     @RequestMapping("/admin")
     public String adminPage(){
@@ -42,7 +41,7 @@ public class AdminController {
 
     @RequestMapping("/admin/personInventory")
     public String personInventory(Model model){
-        List<Person> personList = personDao.getAllPersons();
+        List<Person> personList = personService.getAllPersons();
         model.addAttribute("personList", personList);
         return "personInventory";
     }
@@ -56,6 +55,7 @@ public class AdminController {
         return "personAdd";
     }
 
+
     @RequestMapping(value = "/admin/personInventory/addPerson", method = RequestMethod.POST)
     public String addPersonPost(@Valid @ModelAttribute("person") Person person,
                                 BindingResult result, HttpServletRequest request){
@@ -63,7 +63,7 @@ public class AdminController {
             return "personAdd";
         }
 
-        personDao.addPerson(person);
+        personService.addPerson(person);
 
         MultipartFile personImage = person.getPersonImage();
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
@@ -93,18 +93,18 @@ public class AdminController {
                 e.printStackTrace();
             }
         }
-        personDao.deletePerson(personId);
+        personService.deletePerson(personId);
         return "redirect:/admin/personInventory";
     }
 
 
-
     @RequestMapping("/admin/personInventory/editPerson/{personId}")
     public String editPerson(@PathVariable("personId") int personId, Model model){
-        Person person = personDao.getPersonById(personId);
+        Person person = personService.getPersonById(personId);
         model.addAttribute(person);
         return "personEdit";
     }
+
 
     @RequestMapping(value = "/admin/personInventory/editPerson/", method = RequestMethod.POST)
     public String editPerson(@Valid @ModelAttribute("person") Person person, BindingResult result, Model model, HttpServletRequest request){
@@ -123,11 +123,9 @@ public class AdminController {
                 throw new RuntimeException("Product image saving failed!", e);
             }
         }
-        personDao.editPerson(person);
+        personService.editPerson(person);
         return "redirect:/admin/personInventory/";
     }
-
-
 
 
 }
