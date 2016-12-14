@@ -9,6 +9,51 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 @Entity
+public class Person{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int personId;
+
+    @NotEmpty(message = "First Name can't be empty!")
+    private String firstName;
+
+    @NotEmpty(message = "Last Name can't be empty!")
+    private String lastName;
+
+    private Rank rank;
+
+    private boolean isInCar;
+
+    @Column(columnDefinition="TEXT")
+    private String characteristic;
+
+    @Min(value = 18, message = "Person too young for working")
+    @Max(value = 65, message = "Person too old for work")
+    private int age;
+
+    @Transient
+    private MultipartFile personImage;
+
+    @OneToOne
+    @JoinColumn(name = "carId")
+    private Car car;
+
+
+    /*
+    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+        @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @JoinColumn(name = "PROJECT_ID", nullable = false)
+     */
+
+
+
+
+
+    //    Getter + Setter
+
+    /*
+    @Entity
 @Table(name = "PERSON")
 public class Person{
 
@@ -36,9 +81,7 @@ public class Person{
     @Transient
     private MultipartFile personImage;
 
-//    private PatrolCar car;
-
-    //    Getter + Setter
+     */
 
 
     public String getCharacteristic() {
@@ -103,5 +146,13 @@ public class Person{
 
     public void setPersonImage(MultipartFile personImage) {
         this.personImage = personImage;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
     }
 }

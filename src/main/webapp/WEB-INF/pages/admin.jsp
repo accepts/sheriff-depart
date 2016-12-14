@@ -29,6 +29,11 @@
     <a href="<c:url value="/admin/carInventory"/> " >Car inventory </a>
   </h3>
 
+  <br/>
+
+  <h3>
+    <a href="<c:url value="/admin/carPersonInventory"/> " >CAR-PERSONAL </a>
+  </h3>
 
 
 </div>

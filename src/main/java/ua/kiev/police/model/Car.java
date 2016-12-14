@@ -4,8 +4,44 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+public class Car {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer carId;
+
+    @NotEmpty
+    private String name;
+
+    private int carCapacity = 0;
+
+    private String description;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "car", fetch = FetchType.EAGER)
+    private List<Person> personsInCar;
+
+    @Transient
+    private MultipartFile carImage;
+
+    public Car() {
+    }
+
+
+/*
+@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+
+ */
+
+
+
+    // Getters + Setters
+
+
+    /*
+    @Entity
 @Table(name = "CAR")
 public class Car {
 
@@ -28,7 +64,9 @@ public class Car {
     public Car() {
     }
 
-    // Getters + Setters
+
+     */
+
 
     public int getCarId() {
         return carId;
@@ -62,13 +100,13 @@ public class Car {
         this.description = description;
     }
 
-//    public List<Person> getPersonsInCar() {
-//        return personsInCar;
-//    }
-//
-//    public void setPersonsInCar(List<Person> personsInCar) {
-//        this.personsInCar = personsInCar;
-//    }
+    public List<Person> getPersonsInCar() {
+        return personsInCar;
+    }
+
+    public void setPersonsInCar(List<Person> personsInCar) {
+        this.personsInCar = personsInCar;
+    }
 
     public MultipartFile getCarImage() {
         return carImage;
