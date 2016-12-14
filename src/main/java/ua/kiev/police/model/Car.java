@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "CAR")
 public class Car {
 
     @Id

@@ -9,6 +9,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 @Entity
+@Table(name = "PERSON")
 public class Person{
 
     @Id

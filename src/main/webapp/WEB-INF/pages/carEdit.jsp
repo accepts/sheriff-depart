@@ -33,7 +33,7 @@
   <br/>
   <br/>
 
-  <input type="Submit" value="submit" class="btn btn-success">
+  <input type="Submit" value="Edit" class="btn btn-success">
   <a href="<c:url value="/admin/carInventory" />" class="btn btn-danger"> Cancel </a>
 
 </form:form>
