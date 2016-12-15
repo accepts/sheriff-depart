@@ -35,15 +35,18 @@ public class Person{
     @Transient
     private MultipartFile personImage;
 
-    @OneToOne
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JoinColumn(name = "carId")
     private Car car;
 
 
+
     /*
-    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-        @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     @JoinColumn(name = "PROJECT_ID", nullable = false)
+    private Project project;
      */
 
 

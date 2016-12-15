@@ -13,9 +13,10 @@ public class CarPersonServiceImpl implements CarPersonService {
     @Autowired
     private CarPersonDao carPersonDao;
 
+
     @Override
-    public void addPersonInCar(Person person, Car car) {
-        carPersonDao.addPersonInCar(person, car);
+    public void editPersonInCar(Car car) {
+        carPersonDao.editPersonInCar(car);
     }
 
     @Override

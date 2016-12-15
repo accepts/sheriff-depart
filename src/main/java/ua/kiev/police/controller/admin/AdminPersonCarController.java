@@ -1,8 +1,10 @@
 package ua.kiev.police.controller.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomCollectionEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.*;
 import ua.kiev.police.model.Car;
@@ -35,83 +37,121 @@ public class AdminPersonCarController {
         return personService.getAllPersons();
     }
 
+    @ModelAttribute("carList")
+    public List<Car> getAllCars() {
+        return carService.getAllCars();
+    }
+
+
     @RequestMapping(value = "/admin/carPersonInventory")
     public String carAdd(Model model){
-        model.addAttribute("carList", carService.getAllCars());
-//        model.addAttribute("car", new Car());
-
-        //model.addAttribute("persons", personService.getAllPersons());
+       // model.addAttribute("carList", carService.getAllCars());
+        model.addAttribute("car", new Car());
         return "carPersonInventory";
     }
 
 
     @RequestMapping(value = "/admin/carPersonInventory/editPersonsInCar/{carId}")
-    public String editPersonInCar(@PathVariable int carId,
-                                 Model model){
+    public String editPersonInCar(@PathVariable int carId, Model model){
         Car car = carService.getCarById(carId);
         model.addAttribute("car", car);
-        return "";
+        return "carPersonInventory";
+    }
+
+
+    @RequestMapping(value = "/admin/carPersonInventory/editPersonsInCar",method = RequestMethod.POST)
+    public String editPersonInCarPost(@ModelAttribute("car") Car car, BindingResult result){
+        LOG.info("Try to save car with characteristic: {}" + car);
+        //TODO add to person object car field
+        carPersonService.editPersonInCar(car);
+        return "redirect:/admin/carPersonInventory";
     }
 
 
 
-
-
-/*
-    @RequestMapping(value = "/admin/addPersonInCar/{carId}/{personId}", method = RequestMethod.POST)
-    public String addPersonToCar(@PathVariable int personId,
-                                 @PathVariable int carId,
-                                 Model model){
-
-        carPersonService.addPersonInCar(personService.getPersonById(personId), carService.getCarById(carId));
-        return "redirect:/carAdd";
-    }
-    */
-
-
     /*
-        @RequestMapping(method = RequestMethod.GET, value = "/tasks/{action}/{id}")
-       public String handleAction(@PathVariable Integer id, @PathVariable String action, Model model) {
-           Task task = (Task) taskDao.getById(id);
-           if (action.equalsIgnoreCase("edit")) {
-               model.addAttribute("task", task);
-               return "tasks";
-           } else if (action.equalsIgnoreCase("delete")) {
-               taskDao.delete(task);
-           }
-           return "redirect:/tasks";
-       }
 
-     */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-        @RequestMapping(method = RequestMethod.POST)
-    public String add(@ModelAttribute("project") Project project, BindingResult result) {
-        projectValidator.validate(project, result);
+  @RequestMapping(method = RequestMethod.POST, value = "/addtask")
+    public String add(@ModelAttribute("task") Task task, BindingResult result) {
+        taskValidator.validate(task, result);
         if (result.hasErrors())
-            return "/projects";
+            return "/tasks";
 
-        projectDao.update(project);
-        return "redirect:/projects";
+
+        projectDao.update(task);
+        return "redirect:/tasks";
 
     }
+
      */
+
+
 
 
     @InitBinder
+    public void initBinder(ServletRequestDataBinder binder) {
+        binder.registerCustomEditor(Car.class, "car", new PropertyEditorSupport() {
+
+            @Override
+            public void setAsText(String text) throws IllegalArgumentException {
+                Integer carId = Integer.parseInt(text);
+                Car car = carService.getCarById(carId);
+                setValue(car);
+            }
+
+            @Override
+            public String getAsText() {
+                Object value = getValue();
+                if (value != null) {
+                    Car car = (Car) value;
+                    return car.getName();
+                }
+
+                return null;
+            }
+        });
+
+//        binder.registerCustomEditor(List.class, "persons", new CustomCollectionEditor(List.class) {
+//
+//            protected Object convertElement(Object element) {
+//                if (element != null) {
+//                    Integer personId = Integer.parseInt(element.toString());
+//                    Person person = personService.getPersonById(personId);
+//                    return person;
+//                }
+//                return null;
+//            }
+//        });
+
+
+
+
+        binder.registerCustomEditor(List.class, "personsInCar", new CustomCollectionEditor(List.class) {
+
+            protected Object convertElement(Object element) {
+                if (element != null) {
+                    Integer personId = Integer.parseInt(element.toString());
+                    //TODO set carId into person object
+                    Person person = personService.getPersonById(personId);
+                    return person;
+                }
+                return null;
+            }
+        });
+
+
+    }
+
+
+
+
+}
+
+
+
+
+    /*
+        @InitBinder
     public void initBinder(ServletRequestDataBinder binder) {
         binder.registerCustomEditor(Person.class, "person", new PropertyEditorSupport() {
 
@@ -136,8 +176,4 @@ public class AdminPersonCarController {
 
         });
     }
-
-
-
-
-}
+     */

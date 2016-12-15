@@ -68,11 +68,11 @@ public class Car {
      */
 
 
-    public int getCarId() {
+    public Integer getCarId() {
         return carId;
     }
 
-    public void setCarId(int carId) {
+    public void setCarId(Integer carId) {
         this.carId = carId;
     }
 
@@ -120,7 +120,7 @@ public class Car {
     // Addition methods
 /*
 
-    public void addPersonInCar(Person person){
+    public void editPersonInCar(Person person){
         if (personsInCar == null){
             this.personsInCar = new ArrayList<Person>();
         }
