@@ -45,7 +45,6 @@ public class AdminPersonCarController {
 
     @RequestMapping(value = "/admin/carPersonInventory")
     public String carAdd(Model model){
-       // model.addAttribute("carList", carService.getAllCars());
         model.addAttribute("car", new Car());
         return "carPersonInventory";
     }
@@ -61,12 +60,15 @@ public class AdminPersonCarController {
 
     @RequestMapping(value = "/admin/carPersonInventory/editPersonsInCar",method = RequestMethod.POST)
     public String editPersonInCarPost(@ModelAttribute("car") Car car, BindingResult result){
-        LOG.info("Try to save car with characteristic: {}" + car);
-        //TODO add to person object car field
-        carPersonService.editPersonInCar(car);
+        try {
+            carPersonService.editPersonInCar(car);
+            LOG.info("save car with characteristic: {}" + car);
+        } catch (Exception e) {
+            e.printStackTrace();
+            LOG.info("Exception occur in {}" + e);
+        }
         return "redirect:/admin/carPersonInventory";
     }
-
 
 
 
@@ -102,7 +104,6 @@ public class AdminPersonCarController {
             protected Object convertElement(Object element) {
                 if (element != null) {
                     Integer personId = Integer.parseInt(element.toString());
-                    //TODO set carId into person object
                     Person person = personService.getPersonById(personId);
                     return person;
                 }
@@ -114,37 +115,6 @@ public class AdminPersonCarController {
     }
 
 
-
-
 }
 
 
-
-
-    /*
-        @InitBinder
-    public void initBinder(ServletRequestDataBinder binder) {
-        binder.registerCustomEditor(Person.class, "person", new PropertyEditorSupport() {
-
-            @Override
-            public void setAsText(String text) throws IllegalArgumentException {
-                Integer personId = Integer.parseInt(text);
-                Person person = personService.getPersonById(personId);
-                setValue(person);
-            }
-
-            @Override
-            public String getAsText() {
-                Object value = getValue();
-                if (value != null) {
-                    Person person = (Person) value;
-                    return person.getLastName();
-                }
-
-                return null;
-            }
-
-
-        });
-    }
-     */

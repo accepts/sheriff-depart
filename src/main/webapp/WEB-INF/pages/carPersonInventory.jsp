@@ -17,7 +17,7 @@
             <th>Photo</th>
             <th>Name</th>
             <th>Capacity</th>
-            <th>Description</th>
+            <%--<th>Description</th>--%>
             <th>Persons</th>
             <th>Edit</th>
         </tr>
@@ -28,7 +28,7 @@
                          style="width: 30%; height: auto"/></td>
                 <td>${car.name}</td>
                 <td>${car.carCapacity}</td>
-                <td>${car.description}</td>
+                <%--<td>${car.description}</td>--%>
                 <td>
                     <c:forEach var="person" items="${car.personsInCar}">
                         <c:out value="${person.firstName}"/> <c:out value="${person.lastName}"/><br/>
@@ -48,6 +48,7 @@
                commandName="car">
 
     <form:hidden path="carId"/>
+    <form:hidden path="description"/>
 
     Name: <form:input path="name"/>
 

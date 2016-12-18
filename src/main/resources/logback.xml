@@ -28,8 +28,9 @@
     <!--all, trace, debug, info, warn, error, fatal-->
     <logger name="ua.kiev.police" level="debug"/>
 
-    <logger name="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver" level="debug"/>
-    <logger name="org.springframework.security" level="debug"/>
+    <!--<logger name="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver" level="debug"/>-->
+    <!--<logger name="org.springframework.security" level="debug"/>-->
+    <logger name="org.springframework" level="info"/>
 
     <!--default level is INFO-->
     <root level="INFO">

@@ -41,6 +41,7 @@ public class AdminCarController {
         return "carInventory";
     }
 
+
     @RequestMapping("/admin/carInventory/addCar")
     public String addCar(Model model){
         Car car = new Car();

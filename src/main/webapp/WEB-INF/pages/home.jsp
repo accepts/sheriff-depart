@@ -26,7 +26,9 @@
                     <span class="text-muted">Edit personal of particular patrol Car</span>
                 </div>
                 <div class="col-xs-6 col-sm-3 placeholder">
+                    <a href="<c:url value="/cars"/>">
                     <img src="resources/images/mechanic.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    </a>
                     <h4>Car</h4>
                     <span class="text-muted">Mechanic department: change car characteristic</span>
                 </div>

@@ -16,6 +16,7 @@
       <th>Name</th>
       <th>Capacity</th>
       <th>Description</th>
+      <th>Personal</th>
       <th>Detail</th>
       <th>Delete</th>
       <th>Edit</th>
@@ -27,6 +28,13 @@
         <td>${car.name}</td>
         <td>${car.carCapacity}</td>
         <td>${car.description}</td>
+
+        <td>
+      <c:forEach items="${car.personsInCar}" var="pc">
+        ${pc.firstName} ${pc.lastName}<br/>
+      </c:forEach>
+        </td>
+
         <td><a href="<spring:url value="/carView/${car.carId}"/> " ><span class="glyphicon glyphicon-info-sign"></span></a></td>
         <td><a href="<spring:url value="/admin/carInventory/deleteCar/${car.carId}"/> " ><span class="glyphicon glyphicon-remove" style="color: #c12e2a"></span></a></td>
         <td><a href="<spring:url value="/admin/carInventory/editCar/${car.carId}"/> " ><span class="glyphicon glyphicon-pencil" style="color: #3c763d"></span></a></td>

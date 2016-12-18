@@ -26,9 +26,9 @@ public class PersonDaoImpl implements PersonDao {
     }
 
     @Override
-    public Person getPersonById(int id) {
+    public Person getPersonById(int personId) {
         Session session = sessionFactory.getCurrentSession();
-        Person person = (Person) session.get(Person.class, id);
+        Person person = (Person) session.get(Person.class, personId);
         return person;
     }
 

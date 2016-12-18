@@ -22,14 +22,14 @@ public class CarPersonDaoImpl implements CarPersonDao {
     public void editPersonInCar(Car car) {
         Session session = sessionFactory.getCurrentSession();
 
-        for (Person p : car.getPersonsInCar()){
-            p.setCar(car);
-            p.setIsInCar(true);
-        }
+//        for (Person p : car.getPersonsInCar()){
+//            p.setCar(car);
+//            p.setIsInCar(true);
+//        }
 
         car.setCarCapacity(car.getPersonsInCar().size());
 
-        session.saveOrUpdate(car);
+        session.update(car);
         session.flush();
     }
 

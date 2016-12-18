@@ -11,6 +11,7 @@
            enctype="multipart/form-data">
 
   <form:hidden path="carId" value="${car.carId}"/>
+  <form:hidden path="personsInCar" value="${car.personsInCar}"/>
 
 
   <div class="form-group">

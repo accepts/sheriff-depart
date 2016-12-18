@@ -27,11 +27,10 @@ public class CarController {
         return "cars";
     }
 
-    @RequestMapping("/carView/{carId}")
+    @RequestMapping(value = "/carView/{carId}")
     public String carView(@PathVariable int carId, Model model){
         Car car = carService.getCarById(carId);
         model.addAttribute(car);
-        LOG.info("<--- carView added car into model {}: ", car);
         return "carView";
     }
 
