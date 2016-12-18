@@ -69,21 +69,6 @@ public class AdminPersonCarController {
 
 
 
-    /*
-
-  @RequestMapping(method = RequestMethod.POST, value = "/addtask")
-    public String add(@ModelAttribute("task") Task task, BindingResult result) {
-        taskValidator.validate(task, result);
-        if (result.hasErrors())
-            return "/tasks";
-
-
-        projectDao.update(task);
-        return "redirect:/tasks";
-
-    }
-
-     */
 
 
 
@@ -110,20 +95,6 @@ public class AdminPersonCarController {
                 return null;
             }
         });
-
-//        binder.registerCustomEditor(List.class, "persons", new CustomCollectionEditor(List.class) {
-//
-//            protected Object convertElement(Object element) {
-//                if (element != null) {
-//                    Integer personId = Integer.parseInt(element.toString());
-//                    Person person = personService.getPersonById(personId);
-//                    return person;
-//                }
-//                return null;
-//            }
-//        });
-
-
 
 
         binder.registerCustomEditor(List.class, "personsInCar", new CustomCollectionEditor(List.class) {

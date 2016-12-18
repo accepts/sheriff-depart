@@ -26,47 +26,12 @@ public class Car {
     @Transient
     private MultipartFile carImage;
 
+
     public Car() {
     }
-
-
-/*
-@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-
- */
-
 
 
     // Getters + Setters
-
-
-    /*
-    @Entity
-@Table(name = "CAR")
-public class Car {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer carId;
-
-    @NotEmpty
-    private String name;
-
-    private int carCapacity = 0;
-
-    private String description;
-
-//    private List<Person> personsInCar;
-
-    @Transient
-    private MultipartFile carImage;
-
-    public Car() {
-    }
-
-
-     */
-
 
     public Integer getCarId() {
         return carId;
@@ -136,4 +101,12 @@ public class Car {
     }
 */
 
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", carId=" + carId +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

@@ -35,57 +35,19 @@ public class Person{
     @Transient
     private MultipartFile personImage;
 
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+//    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "carId")
     private Car car;
 
 
 
     /*
-    @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
 
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    @JoinColumn(name = "PROJECT_ID", nullable = false)
-    private Project project;
      */
-
-
-
 
 
     //    Getter + Setter
-
-    /*
-    @Entity
-@Table(name = "PERSON")
-public class Person{
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int personId;
-
-    @NotEmpty(message = "First Name can't be empty!")
-    private String firstName;
-
-    @NotEmpty(message = "Last Name can't be empty!")
-    private String lastName;
-
-    private Rank rank;
-
-    private boolean isInCar;
-
-    @Column(columnDefinition="TEXT")
-    private String characteristic;
-
-    @Min(value = 18, message = "Person too young for working")
-    @Max(value = 65, message = "Person too old for work")
-    private int age;
-
-    @Transient
-    private MultipartFile personImage;
-
-     */
-
 
     public String getCharacteristic() {
         return characteristic;
@@ -157,5 +119,13 @@ public class Person{
 
     public void setCar(Car car) {
         this.car = car;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

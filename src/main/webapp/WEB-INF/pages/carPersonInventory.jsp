@@ -30,10 +30,8 @@
                 <td>${car.carCapacity}</td>
                 <td>${car.description}</td>
                 <td>
-                        ${car.personsInCar}
                     <c:forEach var="person" items="${car.personsInCar}">
-                        <c:out value="${person.firstName}"/>&nbsp; ,
-                        <c:out value="${person.lastName}"/>
+                        <c:out value="${person.firstName}"/> <c:out value="${person.lastName}"/><br/>
                     </c:forEach>
                 </td>
 

@@ -19,20 +19,22 @@
       <th>First name</th>
       <th>Last Name</th>
       <th>Rank</th>
+      <th>In car</th>
       <th>Detail</th>
       <th>Delete</th>
       <th>Edit</th>
     </tr>
     </thead>
-    <c:forEach items="${personList}" var="car">
+    <c:forEach items="${personList}" var="person">
       <tr>
-        <td><img src="<c:url value="/resources/photo_person/${car.personId}.png" /> " alt="image" style="width: 30%; height: auto"/> </td>
-        <td>${car.firstName}</td>
-        <td>${car.lastName}</td>
-        <td>${car.rank}</td>
-        <td><a href="<spring:url value="/personView/${car.personId}"/> " ><span class="glyphicon glyphicon-info-sign"></span></a></td>
-        <td><a href="<spring:url value="/admin/personInventory/deletePerson/${car.personId}"/> " ><span class="glyphicon glyphicon-remove" style="color: #c12e2a"></span></a></td>
-        <td><a href="<spring:url value="/admin/personInventory/editPerson/${car.personId}"/> " ><span class="glyphicon glyphicon-pencil" style="color: #3c763d"></span></a></td>
+        <td><img src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image" style="width: 30%; height: auto"/> </td>
+        <td>${person.firstName}</td>
+        <td>${person.lastName}</td>
+        <td>${person.rank}</td>
+        <td>${person.inCar}</td>
+        <td><a href="<spring:url value="/personView/${person.personId}"/> " ><span class="glyphicon glyphicon-info-sign"></span></a></td>
+        <td><a href="<spring:url value="/admin/personInventory/deletePerson/${person.personId}"/> " ><span class="glyphicon glyphicon-remove" style="color: #c12e2a"></span></a></td>
+        <td><a href="<spring:url value="/admin/personInventory/editPerson/${person.personId}"/> " ><span class="glyphicon glyphicon-pencil" style="color: #3c763d"></span></a></td>
       </tr>
     </c:forEach>
   </table>

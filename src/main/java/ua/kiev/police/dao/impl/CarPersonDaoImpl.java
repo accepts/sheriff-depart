@@ -21,6 +21,14 @@ public class CarPersonDaoImpl implements CarPersonDao {
     @Override
     public void editPersonInCar(Car car) {
         Session session = sessionFactory.getCurrentSession();
+
+        for (Person p : car.getPersonsInCar()){
+            p.setCar(car);
+            p.setIsInCar(true);
+        }
+
+        car.setCarCapacity(car.getPersonsInCar().size());
+
         session.saveOrUpdate(car);
         session.flush();
     }
