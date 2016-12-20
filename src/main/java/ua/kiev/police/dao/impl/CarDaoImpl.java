@@ -51,8 +51,14 @@ public class CarDaoImpl implements CarDao {
     @Override
     public void editCar(Car car) {
         Session session = sessionFactory.getCurrentSession();
-        car.setCarCapacity(car.getPersonsInCar().size());
-        session.saveOrUpdate(car);
+
+        if (car.getPersonsInCar() != null){
+            car.setCarCapacity(car.getPersonsInCar().size());
+        } else {
+            car.setCarCapacity(0);
+        }
+
+        session.update(car);
         session.flush();
     }
 }

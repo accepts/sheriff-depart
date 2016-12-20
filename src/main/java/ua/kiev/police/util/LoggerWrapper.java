@@ -32,12 +32,6 @@ public class LoggerWrapper {
         logger.info(msg, gson.toJson(arguments));
     }
 
-
-
-
-
-
-    /*
     public void warn(String msg) {
         logger.warn(msg);
     }
@@ -54,6 +48,8 @@ public class LoggerWrapper {
         logger.error(msg, t);
     }
 
+
+ /*
    public boolean isDebug() {
         return logger.isDebugEnabled();
     }

@@ -28,7 +28,7 @@
                          style="width: 30%; height: auto"/></td>
                 <td>${car.name}</td>
                 <td>${car.carCapacity}</td>
-                <%--<td>${car.description}</td>--%>
+                    <%--<td>${car.description}</td>--%>
                 <td>
                     <c:forEach var="person" items="${car.personsInCar}">
                         <c:out value="${person.firstName}"/> <c:out value="${person.lastName}"/><br/>
@@ -43,7 +43,6 @@
     </table>
 
 
-
     <form:form action="${pageContext.request.contextPath}/admin/carPersonInventory/editPersonsInCar" method="post"
                commandName="car">
 
@@ -54,15 +53,15 @@
 
     <table>
         <tr>
-            <%--<td>Name:</td>--%>
-            <%--<td><form:input path="name"/></td>--%>
+                <%--<td>Name:</td>--%>
+                <%--<td><form:input path="name"/></td>--%>
         </tr>
 
         <tr>
             <td>Personal:</td>
             <td>
                 <form:select path="personsInCar" items="${persons}" multiple="multiple" size="5"
-                             itemLabel="firstName" itemValue="personId" />
+                             itemLabel="firstName" itemValue="personId"/>
             </td>
         </tr>
 
@@ -72,9 +71,6 @@
         </tr>
 
         </form:form>
-
-        <%--<form:select path="persons" items="${persons}" multiple="multiple" size="5" itemLabel="firstName"--%>
-                     <%--itemValue="personId"/>--%>
 
 
 </div>
