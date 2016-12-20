@@ -48,15 +48,11 @@
 
     <form:hidden path="carId"/>
     <form:hidden path="description"/>
+    <form:hidden path="name"/>
 
-    Name: <form:input path="name"/>
+    Name: <strong>${car.name}</strong>
 
     <table>
-        <tr>
-                <%--<td>Name:</td>--%>
-                <%--<td><form:input path="name"/></td>--%>
-        </tr>
-
         <tr>
             <td>Personal:</td>
             <td>
@@ -67,7 +63,8 @@
 
 
         <tr>
-            <td align="right"><input type="submit" value="submit"></td>
+            <br/>
+            <td align="right"><input type="submit" value="Edit Persons"></td>
         </tr>
 
         </form:form>

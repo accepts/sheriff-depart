@@ -19,6 +19,7 @@ public class Car {
     @Column(name = "NAME")
     private String name;
 
+
     @Column(name = "CAPACITY")
     private int carCapacity = 0;
 
@@ -36,35 +37,8 @@ public class Car {
     private MultipartFile carImage;
 
 
-
-    /*
-    @Entity
-public class Car {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer carId;
-
-    @NotEmpty
-    private String name;
-
-    private int carCapacity = 0;
-
-    private String description;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "car", fetch = FetchType.EAGER)
-    private List<Person> personsInCar;
-
-    @Transient
-    private MultipartFile carImage;
-
-     */
-
-
-
     public Car() {
     }
-
 
     // Getters + Setters
 
@@ -116,27 +90,6 @@ public class Car {
         this.carImage = carImage;
     }
 
-
-
-    // Addition methods
-/*
-
-    public void editPersonInCar(Person person){
-        if (personsInCar == null){
-            this.personsInCar = new ArrayList<Person>();
-        }
-        personsInCar.add(person);
-        person.setIsInCar(true);
-        carCapacity = carCapacity + 1;
-    }
-
-    public void removePersonFromCar(Person person){
-        personsInCar.remove(person);
-        person.setIsInCar(false);
-        carCapacity = carCapacity - 1;
-    }
-*/
-
     @Override
     public String toString() {
         return "Car{" +
@@ -145,4 +98,43 @@ public class Car {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+
+    // Addition methods
+
+    public void clearAllPersonsFromCar(){
+        if (personsInCar != null || personsInCar.size() != 0){
+            personsInCar.clear();
+        }
+    }
+
+
+
+
 }
+
+
+
+
+    /*
+    @Entity
+public class Car {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer carId;
+
+    @NotEmpty
+    private String name;
+
+    private int carCapacity = 0;
+
+    private String description;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "car", fetch = FetchType.EAGER)
+    private List<Person> personsInCar;
+
+    @Transient
+    private MultipartFile carImage;
+
+     */

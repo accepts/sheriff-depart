@@ -29,6 +29,7 @@ public class Person{
     @Column(name = "RANK")
     private Rank rank;
 
+    //TODO make this field Transient
     @Column(name = "IS_IN_CAR")
     private boolean isInCar;
 
@@ -139,11 +140,19 @@ public class Person{
     }
 
     public boolean isInCar() {
+//        if (carList.size() != 0){
+  //      }
+        setIsInCar();
         return isInCar;
     }
 
-    public void setIsInCar(boolean isInCar) {
-        this.isInCar = isInCar;
+    public void setIsInCar() {
+        if (carList.size() == 0 || carList == null){
+            this.isInCar = false;
+        } else {
+            this.isInCar = true;
+        }
+
     }
 
     public MultipartFile getPersonImage() {

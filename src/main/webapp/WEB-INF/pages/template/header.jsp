@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +38,13 @@
         <li><a href="<c:url value="/"/>">Home</a></li>
         <li><a href="<c:url value="/persons"/>">List of Persons</a></li>
         <li><a href="<c:url value="/admin"/>">Admin</a></li>
+
+        <c:if test="${not empty pageContext.request.userPrincipal}">
+          <c:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
+            <li><a href="<c:url value="/j_spring_security_logout"/>" style="color: #e38d13">Logout</a></li>
+          </c:if>
+        </c:if>
+
         <li><a href="#">Help</a></li>
       </ul>
       <%--

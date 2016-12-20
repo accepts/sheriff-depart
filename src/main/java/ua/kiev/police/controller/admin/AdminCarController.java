@@ -32,12 +32,15 @@ public class AdminCarController {
     protected static final LoggerWrapper LOG = LoggerWrapper.get(AdminCarController.class);
 
 
-    @Autowired
     private CarService carService;
 
-    @Autowired
     private PersonService personService;
 
+    @Autowired
+    public AdminCarController(CarService carService, PersonService personService) {
+        this.carService = carService;
+        this.personService = personService;
+    }
 
     @ModelAttribute("persons")
     public List<Person> getAllPersons() {
@@ -78,7 +81,6 @@ public class AdminCarController {
                 carImage.transferTo(new File(path.toString()));
             } catch (IOException e) {
                 e.printStackTrace();
-                //LOG.info("Error occur when try to save file to path {}" + path.toString());
                 throw new RuntimeException("Car image saving failed!", e);
             }
         }
@@ -93,7 +95,6 @@ public class AdminCarController {
             try {
                 Files.delete(path);
             } catch (IOException e) {
-                //LOG.info("Error occur when try to delete file with path {}" + path.toString());
                 e.printStackTrace();
             }
         }
@@ -106,7 +107,6 @@ public class AdminCarController {
     public String editCar(@PathVariable("carId") int carId, Model model){
         Car car = carService.getCarById(carId);
         model.addAttribute(car);
-        //model.addAttribute("personInParticularCar", car.getPersonsInCar());
         return "carEdit";
     }
 
@@ -131,7 +131,6 @@ public class AdminCarController {
                 carImage.transferTo(new File(path.toString()));
             } catch (IOException e) {
                 e.printStackTrace();
-                //LOG.info("Error occur when edit car object {}");
                 throw new RuntimeException("Car image saving failed!", e);
             }
         }
@@ -139,6 +138,25 @@ public class AdminCarController {
         return "redirect:/admin/carInventory/";
     }
 
+
+
+    //TODO implement this method
+    @RequestMapping(value = "/admin/carPersonInventory/clearCarPersonal/{carId}")
+    public String clearAllPersonalFromCar(@PathVariable int carId){
+        Car car = carService.getCarById(carId);
+        car.clearAllPersonsFromCar();
+        carService.editCar(car);
+
+        //Version 2
+        //carPersonService.removeAllPersonsFromCar(carId);
+
+        return "redirect:/admin/carInventory";
+    }
+
+
+
+
+    //TODO exception handler methods
 
 
 
@@ -180,72 +198,5 @@ public class AdminCarController {
 
 
     }
-
-/*
-
-    @InitBinder
-    public void initBinder(ServletRequestDataBinder binder) {
-        binder.registerCustomEditor(List.class, "personsInCar", new CustomCollectionEditor(List.class) {
-
-            protected Object convertElement(Object element) {
-                if (element != null) {
-                    if (element instanceof List){
-                        System.out.println("<----IB: LIST");
-                    }
-                    if (element instanceof Person){
-                        System.out.println("<-----IB: Person");
-                    }
-                    System.out.println("<<<------InitBinder-element.toString------: " + element.toString());
-                    System.out.println("<------------------------" + element.getClass());
-//                    List<Person> personsInCar = null;
-//                    try {
-//                        personsInCar = (List<Person>) element;
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                        LOG.info("<-----LOG----error occur in initBinder-----");
-//                        return null;
-//                    }
-//                    return  personsInCar;
-
-
-                    Integer personId = Integer.parseInt(element.toString());
-                    Person person = personService.getPersonById(personId);
-                    return person;
-                }
-                return null;
-            }
-        });
-
-
-    }
-    */
-
-    /*
-
-binder.registerCustomEditor(Car.class, "car", new PropertyEditorSupport() {
-
-            @Override
-            public void setAsText(String text) throws IllegalArgumentException {
-                Integer carId = Integer.parseInt(text);
-                Car car = carService.getCarById(carId);
-                setValue(car);
-            }
-
-            @Override
-            public String getAsText() {
-                Object value = getValue();
-                if (value != null) {
-                    Car car = (Car) value;
-                    return car.getName();
-                }
-
-                return null;
-            }
-        });
-
-     */
-
-
-
 
 }

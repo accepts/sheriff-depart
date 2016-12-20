@@ -1,6 +1,7 @@
+/*
 package ua.kiev.police.dao.impl;
 
-import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ua.kiev.police.dao.CarPersonDao;
 import ua.kiev.police.model.Car;
-import ua.kiev.police.model.Person;
 
 @Repository
 @Transactional
@@ -36,8 +36,21 @@ public class CarPersonDaoImpl implements CarPersonDao {
 
     //TODO remove all persons from car
     @Override
-    public void removePersonFromCar(Person person, Car car) {
+    public void removeAllPersonsFromCar(int carId) {
+        Session session = sessionFactory.getCurrentSession();
+        String cmdHQL = "DELETE FROM cars_persons WHERE car_id = :carId";
+        SQLQuery query = session.createSQLQuery(cmdHQL);
+        query.setParameter("carId", carId);
+        int result = query.executeUpdate();
+        System.out.println("<----removeAllPersonsFromCar: ||" + result);
+        session.flush();
     }
+
+
+
+
+
+
 
 
     //TODO delete this method
@@ -48,26 +61,18 @@ public class CarPersonDaoImpl implements CarPersonDao {
     }
 
 
-    //TODO implements this method
-    @Override
-    public boolean isInCar(int personId) {
-        Session session = sessionFactory.getCurrentSession();
+//    @Override
+//    public boolean isInCar(int personId) {
+//        Session session = sessionFactory.getCurrentSession();
+//
+//        String hql = "FROM cars_persons cp WHERE cp.person_id = :personId";
+//        Query query = session.createQuery(hql);
+//        query.setParameter("personId", personId);
+//        int result = query.executeUpdate();
+//        System.out.println("<======= Result ||: " + result);
+//
+//        return false;
+//    }
 
-        String hql = "FROM cars_person cp WHERE cp.person_id = :personId";
-        Query query = session.createQuery(hql);
-        query.setParameter("personId", personId);
-        Person p = query.uniqueResult();
-
-
-        /*
-                String hql = "FROM Employee E WHERE E.id = :employee_id";
-Query query = session.createQuery(hql);
-query.setParameter("employee_id",10);
-List results = query.list();
-                 */
-
-
-
-        return false;
-    }
 }
+*/

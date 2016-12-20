@@ -9,7 +9,6 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.*;
 import ua.kiev.police.model.Car;
 import ua.kiev.police.model.Person;
-import ua.kiev.police.service.CarPersonService;
 import ua.kiev.police.service.CarService;
 import ua.kiev.police.service.PersonService;
 import ua.kiev.police.util.LoggerWrapper;
@@ -18,13 +17,9 @@ import java.beans.PropertyEditorSupport;
 import java.util.List;
 
 @Controller
-//@RequestMapping("/admin")
 public class AdminPersonCarController {
 
     protected static final LoggerWrapper LOG = LoggerWrapper.get(AdminPersonCarController.class);
-
-    @Autowired
-    private CarPersonService carPersonService;
 
     @Autowired
     private PersonService personService;
@@ -61,7 +56,9 @@ public class AdminPersonCarController {
     @RequestMapping(value = "/admin/carPersonInventory/editPersonsInCar",method = RequestMethod.POST)
     public String editPersonInCarPost(@ModelAttribute("car") Car car, BindingResult result){
         try {
-            carPersonService.editPersonInCar(car);
+
+            carService.editCar(car);
+//            carPersonService.editPersonInCar(car);
             LOG.info("save car with characteristic: {}" + car);
         } catch (Exception e) {
             e.printStackTrace();

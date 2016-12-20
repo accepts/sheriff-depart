@@ -7,7 +7,7 @@
   <p class="lead">List of all car</p>
 </div>
 
-<div class="container col-md-10">
+<div class="container col-md-11">
 
   <table class="table table-bordered">
     <thead>
@@ -20,6 +20,7 @@
       <th>Detail</th>
       <th>Delete</th>
       <th>Edit</th>
+      <th>Clear Psns</th>
     </tr>
     </thead>
     <c:forEach items="${carList}" var="car">
@@ -38,6 +39,7 @@
         <td><a href="<spring:url value="/carView/${car.carId}"/> " ><span class="glyphicon glyphicon-info-sign"></span></a></td>
         <td><a href="<spring:url value="/admin/carInventory/deleteCar/${car.carId}"/> " ><span class="glyphicon glyphicon-remove" style="color: #c12e2a"></span></a></td>
         <td><a href="<spring:url value="/admin/carInventory/editCar/${car.carId}"/> " ><span class="glyphicon glyphicon-pencil" style="color: #3c763d"></span></a></td>
+        <td><a href="<spring:url value="/admin/carPersonInventory/clearCarPersonal/${car.carId}"/> " ><span class="glyphicon glyphicon-scissors" style="color: darkmagenta"></span></a></td>
       </tr>
     </c:forEach>
   </table>
