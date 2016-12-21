@@ -22,11 +22,17 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
+    @Autowired
+    private CarService carService;
+
 
     @RequestMapping("/persons")
     public String getPersons(Model model){
         List<Person> personList = personService.getAllPersons();
         model.addAttribute("personList", personList);
+
+        List<Car> carList = carService.getAllCars();
+        model.addAttribute("carList", carList);
         return "persons";
     }
 
