@@ -1,6 +1,16 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@include file="/WEB-INF/pages/template/header.jsp"%>
 
+<script>
+  $(document).ready(function(){
+    var searchCondition = '${searchCondition}';
+    $('.table').DataTable({
+      "lengthMenu":[[1,2,3,5,10,-1], [1,2,3,5,10, "All"]],
+      "oSearch" : {"sSearch" : searchCondition}
+    });
+  });
+
+</script>
 
 
 <div class="page-header">

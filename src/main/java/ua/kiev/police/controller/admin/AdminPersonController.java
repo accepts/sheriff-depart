@@ -1,13 +1,11 @@
 package ua.kiev.police.controller.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ua.kiev.police.model.Person;
 import ua.kiev.police.model.enums.Rank;
@@ -120,6 +118,21 @@ public class AdminPersonController {
         }
         personService.editPerson(person);
         return "redirect:/admin/personInventory/";
+    }
+
+
+    //    Exception handler methods
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Illegal request, please verify your payload")
+    public void handleClientErrors(Exception e) {
+        LOG.error("Exception occur in {}: " + e);
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Internal server error!")
+    public void handleServerErrors(Exception e) {
+        LOG.error("Exception occur in {}: " + e);
     }
 
 

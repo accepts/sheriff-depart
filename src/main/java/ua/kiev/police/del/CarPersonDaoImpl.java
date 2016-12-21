@@ -34,7 +34,6 @@ public class CarPersonDaoImpl implements CarPersonDao {
 
 
 
-    //TODO remove all persons from car
     @Override
     public void removeAllPersonsFromCar(int carId) {
         Session session = sessionFactory.getCurrentSession();
@@ -53,7 +52,6 @@ public class CarPersonDaoImpl implements CarPersonDao {
 
 
 
-    //TODO delete this method
     @Override
     public int getCarCapacity(int carId) {
 

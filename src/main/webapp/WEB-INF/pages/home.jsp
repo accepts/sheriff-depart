@@ -16,17 +16,21 @@
 
                 </div>
                 <div class="col-xs-6 col-sm-3 placeholder">
+                    <a href="<c:url value="/admin/personInventory"/>">
                     <img src="resources/images/sheriff.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    </a>
                     <h4>Person's</h4>
                     <span class="text-muted">Information about particular person with Edit option</span>
                 </div>
                 <div class="col-xs-6 col-sm-3 placeholder">
+                    <a href="<c:url value="/admin/carPersonInventory"/>">
                     <img src="resources/images/car.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                    </a>
                     <h4>Car personal</h4>
                     <span class="text-muted">Edit personal of particular patrol Car</span>
                 </div>
                 <div class="col-xs-6 col-sm-3 placeholder">
-                    <a href="<c:url value="/cars"/>">
+                    <a href="<c:url value="/admin/carInventory"/>">
                     <img src="resources/images/mechanic.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
                     </a>
                     <h4>Car</h4>

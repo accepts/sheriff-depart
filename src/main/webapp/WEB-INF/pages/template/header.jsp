@@ -17,6 +17,17 @@
   <link href="<c:url value="/resources/css/dashboard.css" />" rel="stylesheet">
   <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 
+  <%--DataTables Plugin
+  https://datatables.net/manual/installation
+  --%>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+
+  <%--old style--%>
+  <%--<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>--%>
+  <%--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.10/dataTables.min.css"/>--%>
+
 
 </head>
 
