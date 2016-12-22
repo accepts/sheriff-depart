@@ -4,7 +4,7 @@
 <script>
     $(document).ready(function () {
         var searchCondition = '${searchCondition}';
-        $('.table').DataTable({
+        $('.pure-table-all').DataTable({
             "lengthMenu": [[1, 2, 3, 5, 10, -1], [1, 2, 3, 5, 10, "All"]],
             "oSearch": {"sSearch": searchCondition}
         });
@@ -12,21 +12,22 @@
 </script>
 
 
-<div class="page-header">
-    <h1>List of all officer</h1>
 
-    <p class="lead">Here is list of all person in department.</p>
-</div>
+    <div class="header">
+        <h1>Cars - Persons tables</h1>
 
-<div class="container col-md-10">
+        <h2>List of all Department personal with their status (on car or on foot)</h2>
+    </div>
+
+    <div class="content">
 
 
     <c:forEach items="${carList}" var="car" varStatus="carNumber">
-        <table border="1px">
+        <table class="pure-table pure-table-bordered">
             <thead>
             <tr>
-                <th>${carNumber.count} ) Car info</th>
-                <th>Persons info</th>
+                <th class="table-border-car-person">${carNumber.count} ) Car info</th>
+                <th class="table-border-car-person">Persons info</th>
             </tr>
             </thead>
 
@@ -36,28 +37,28 @@
 
                     <p><img src="<c:url value="/resources/photo_cars/${car.carId}.png" /> " alt="image" style="width: 80%; height: auto"/> </p>
 
-                    <p>${car.name}</p>
-                    <p>${car.carCapacity}</p>
-                    <p>${car.description}</p>
+                    <p>Car name: </p><p class="name-of-entity">${car.name}</p>
+                    <p>Car capacity: </p><p class="name-of-entity">${car.carCapacity}</p>
+                    <p>Car description: </p><p class="name-of-entity">${car.description}</p>
                 </td>
 
                 <td>
                     <br/>
 
                     <c:forEach items="${car.personsInCar}" var="person" varStatus="personNumber">
-                        <table border="1px">
+                        <table class="pure-table pure-table-bordered">
                             <thead>
                             <tr>
-                                <th>Nomer</th>
-                                <th>PhotoPerson</th>
-                                <th>PersonInformation</th>
+                                <th>Number</th>
+                                <th>Photo</th>
+                                <th>Information</th>
                             </tr>
                             </thead>
 
                             <tr>
                                 <td>${personNumber.count}</td>
                                 <td>
-                                    <p><img src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image" style="width: 30%; height: auto"/> </p>
+                                    <p><img src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image"  style="width: 60%; height: auto" /> </p>
                                 </td>
 
                                 <td>
@@ -79,11 +80,11 @@
     </c:forEach>
 
 
-    <%--
 
-      <table class="table table-bordered">
+<%--
+      <table class="pure-table pure-table-all">
         <thead>
-        <tr class="bg-success">
+        <tr>
           <th>Photo</th>
           <th>First name</th>
           <th>Last Name</th>
@@ -94,7 +95,7 @@
         </thead>
         <c:forEach items="${personList}" var="person">
           <tr>
-            <td><img src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image" style="width: 30%; height: auto"/> </td>
+            <td><img class="pure-pic-table" src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image" /> </td>
             <td>${person.firstName}</td>
             <td>${person.lastName}</td>
             <td>${person.rank}</td>
@@ -104,18 +105,13 @@
         </c:forEach>
       </table>
 
-    --%>
+--%>
 
 
-    <hr/>
+<h2 class="table-title">Table of all policeman</h2>
 
 
-    <hr/>
-
-
-    <h2>Persons in Car</h2>
-
-    <table class="table table-bordered">
+    <table class="pure-table pure-table-bordered">
         <thead>
         <tr class="bg-success">
             <th>Photo</th>
@@ -129,27 +125,23 @@
         <c:forEach items="${personList}" var="person">
             <tr>
                 <c:if test="${person.inCar ne false}">
-
-                    <td><img src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image"
-                             style="width: 30%; height: auto"/></td>
+                    <td><img class="pure-pic-table" src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image" /></td>
                     <td>${person.firstName}</td>
                     <td>${person.lastName}</td>
                     <td>${person.rank}</td>
                     <td>${person.inCar}</td>
-                    <td><a href="<spring:url value="/personView/${person.personId}"/> "><span
-                            class="glyphicon glyphicon-info-sign"></span></a></td>
+                    <td><a href="<spring:url value="/personView/${person.personId}"/> "><i class="fa fa-id-card fa-2x"></i></a></td>
 
                 </c:if>
             </tr>
         </c:forEach>
-    </table>
 
 
-    <h2>Persons on foot</h2>
+        <tr class="pure-table pure-table-bordered" >
+            <th colspan="6">Persons on foot</th>
+        </tr>
 
-    <table class="table table-bordered">
-        <thead>
-        <tr class="bg-success">
+        <tr class="bg-warning">
             <th>Photo</th>
             <th>First name</th>
             <th>Last Name</th>
@@ -157,24 +149,53 @@
             <th>In Car</th>
             <th>Detail</th>
         </tr>
-        </thead>
         <c:forEach items="${personList}" var="person">
             <tr>
                 <c:if test="${person.inCar ne true}">
-
-                    <td><img src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image"
-                             style="width: 30%; height: auto"/></td>
+                    <td><img class="pure-pic-table" src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image" /></td>
                     <td>${person.firstName}</td>
                     <td>${person.lastName}</td>
                     <td>${person.rank}</td>
                     <td>${person.inCar}</td>
-                    <td><a href="<spring:url value="/personView/${person.personId}"/> "><span
-                            class="glyphicon glyphicon-info-sign"></span></a></td>
-
+                    <td><a href="<spring:url value="/personView/${person.personId}"/> ">
+                        <i class="fa fa-id-card fa-2x"></i></a></td>
                 </c:if>
             </tr>
         </c:forEach>
+
     </table>
+
+
+
+
+        <%--
+            <h2>Persons on foot</h2>
+
+           <table class="pure-table pure-table-bordered">
+                <thead>
+                <tr class="bg-warning">
+                    <th>Photo</th>
+                    <th>First name</th>
+                    <th>Last Name</th>
+                    <th>Rank</th>
+                    <th>In Car</th>
+                    <th>Detail</th>
+                </tr>
+                </thead>
+                <c:forEach items="${personList}" var="person">
+                    <tr>
+                        <c:if test="${person.inCar ne true}">
+                            <td><img class="pure-pic-table" src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image" /></td>
+                            <td>${person.firstName}</td>
+                            <td>${person.lastName}</td>
+                            <td>${person.rank}</td>
+                            <td>${person.inCar}</td>
+                            <td><a href="<spring:url value="/personView/${person.personId}"/> ">
+                                <i class="fa fa-id-card fa-2x"></i></a></td>
+                        </c:if>
+                    </tr>
+                </c:forEach>
+            </table>--%>
 
 
 </div>

@@ -1,0 +1,56 @@
+
+
+
+/*
+Custom styles
+ persons.jsp --- tables
+
+
+*/
+.pure-table td img{
+    height: 5%;
+    width: 15%;
+}
+
+.bg-success{
+    background-color: #122b40;
+    color: #eeeeee;
+    text-align: center;
+}
+
+.bg-warning{
+    background-color: #245580;
+    color: #eeeeee;
+    text-align: center;
+}
+
+.table-border-car-person{
+    background-color: #3c3c3c;
+    color: #eeeeee;
+}
+
+.table-title{
+    text-align: center;
+    font-style: "Serif";
+}
+
+.img-car-person-table{
+    width: 30%;
+    height: auto
+}
+
+.fa{
+    color: #555555;
+}
+
+/*---------------------------------*/
+
+/*
+Car-Person main table at persons-jsp
+*/
+
+.name-of-entity{
+    color: #204d74;
+    font-size: 20px;
+}
+
