@@ -78,7 +78,7 @@
         <li ><a href="<c:url value="/"/>">Home </a></li>
         <li><a href="<c:url value="/admin"/>">Admin</a></li>
         <li><a href="<c:url value="/persons"/>">PersonList</a></li>
-        <li><a href="#">3333</a></li>
+        <li><a href="<c:url value="/help"/>">HELP</a></li>
       </ul>
     </div>
 
