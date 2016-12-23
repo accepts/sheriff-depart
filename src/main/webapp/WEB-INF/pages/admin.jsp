@@ -1,29 +1,73 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@include file="/WEB-INF/pages/template/header.jsp"%>
 
+<div class="header">
+  <h1>Administrator page</h1>
 
-<div class="page-header">
-  <h1>Admin page</h1>
-  <p>Add some product</p>
+  <h2>Main page with link's on general crud-operation.</h2>
+</div>
+
+<div class="content">
+
+  <div class="pure-g">
+
+    <div class="pure-u-1-3">
+      <a href="<c:url value="/admin/personInventory"/> " >
+      <img class="pure-img-responsive" src="<c:url value="/resources/images/tp-person.jpg" />"
+           alt="Peyto Lake">
+      </a>
+      <h2>Person inventory</h2>
+      <p>CRUD operation with personal </p>
+    </div>
+
+    <div class="pure-u-1-3">
+      <a href="<c:url value="/admin/carInventory"/> " >
+      <img class="pure-img-responsive" src="<c:url value="/resources/images/tp-cars.jpg" />"
+           alt="Train">
+      </a>
+      <h2>Car inventory</h2>
+      <p>CRUD operation with Cars </p>
+    </div>
+
+    <div class="pure-u-1-3">
+      <a href="<c:url value="/admin/carPersonInventory"/> " >
+      <img class="pure-img-responsive" src="<c:url value="/resources/images/tp-car.jpg" />"
+           alt="T-Shirt Store">
+      </a>
+      <h2>Car - Person</h2>
+      <p>Set particular persons in corresponding Car</p>
+    </div>
+
+  </div>
 
   <c:if test="${pageContext.request.userPrincipal.name != null }">
-    <h2>
-      Welcome: ${pageContext.request.userPrincipal.name} <br/>
-      <a href="<c:url value="/j_spring_security_logout"/>  " class="btn btn-danger" > Logout</a>
-    </h2>
+  <div id="function-btn">
+    <a href="<c:url value="/j_spring_security_logout"/>"> <button class="button-error pure-button-active pure-button">Logout</button></a>
+  </div>
   </c:if>
-
 
 </div>
 
+<%@include file="/WEB-INF/pages/template/footer.jsp"%>
 
 
-<div class="container col-md-10">
 
-  <h3>
+
+
+
+
+
+
+
+
+
+
+
+<%--  <h3>
     <a href="<c:url value="/admin/personInventory"/> " >Person inventory </a>
   </h3>
-<br/>
+
+  <br/>
 
   <h3>
     <a href="<c:url value="/admin/carInventory"/> " >Car inventory </a>
@@ -33,9 +77,9 @@
 
   <h3>
     <a href="<c:url value="/admin/carPersonInventory"/> " >CAR-PERSONAL </a>
-  </h3>
+  </h3>--%>
 
-
-</div>
-
-<%@include file="/WEB-INF/pages/template/footer.jsp"%>
+<%--<div class="pure-u-1-4">--%>
+<%--<img class="pure-img-responsive" src="<c:url value="/resources/images/tp-car.jpg" />"--%>
+<%--alt="Mountain">--%>
+<%--</div>--%>

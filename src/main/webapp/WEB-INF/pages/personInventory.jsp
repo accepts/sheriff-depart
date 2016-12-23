@@ -3,16 +3,17 @@
 
 
 
-<div class="page-header">
-  <h1>Person inventory page</h1>
-  <p class="lead">List of all person</p>
+
+<div class="header">
+  <h1>Persons table</h1>
+
+  <h2>List of all Department personal with crud-functions</h2>
 </div>
 
-<div class="container col-md-10">
+<div class="content">
 
 
-
-  <table class="table table-bordered">
+  <table class="pure-table pure-table-bordered">
     <thead>
     <tr class="bg-success">
       <th>Photo</th>
@@ -32,15 +33,24 @@
         <td>${person.lastName}</td>
         <td>${person.rank}</td>
         <td>${person.inCar}</td>
-        <td><a href="<spring:url value="/personView/${person.personId}"/> " ><span class="glyphicon glyphicon-info-sign"></span></a></td>
-        <td><a href="<spring:url value="/admin/personInventory/deletePerson/${person.personId}"/> " ><span class="glyphicon glyphicon-remove" style="color: #c12e2a"></span></a></td>
-        <td><a href="<spring:url value="/admin/personInventory/editPerson/${person.personId}"/> " ><span class="glyphicon glyphicon-pencil" style="color: #3c763d"></span></a></td>
+        <td><a href="<spring:url value="/personView/${person.personId}"/> " ><i class="fa fa-id-card fa-2x"></i></a></td>
+        <td><a href="<spring:url value="/admin/personInventory/deletePerson/${person.personId}"/> " ><i class="fa fa-times fa-2x" style="color: #c12e2a"></i></a></td>
+        <td><a href="<spring:url value="/admin/personInventory/editPerson/${person.personId}"/> " ><i class="fa fa-pencil-square-o fa-2x" style="color: #245580"></i></a></td>
       </tr>
     </c:forEach>
   </table>
 
-  <a href="<spring:url value="/admin/personInventory/addPerson"/> " class="btn btn-primary" > Add person</a>
+  <br/>
+
+  <div id="function-btn">
+  <a href="<spring:url value="/admin/personInventory/addPerson"/>"> <button class="button-secondary pure-button-active pure-button"><i class="fa fa-plus-square fa-1x" style="color: white"></i> Add person</button></a>
+  <%--<a href="<spring:url value="/admin/personInventory/addPerson"/> " class="btn btn-primary" > Add person</a>--%>
+  </div>
 
 </div>
+
+
+
+
 
 <%@include file="/WEB-INF/pages/template/footer.jsp"%>

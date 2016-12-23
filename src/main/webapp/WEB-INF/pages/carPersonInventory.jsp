@@ -3,15 +3,15 @@
 <%@include file="/WEB-INF/pages/template/header.jsp" %>
 
 
-<div class="page-header">
-    <h1>Car inventory page</h1>
+<div class="header">
+    <h1>Car-Person table</h1>
 
-    <p class="lead">List of all car with their personal</p>
+    <h2>List of all Department cars and car personal with add/remove functions</h2>
 </div>
 
-<div class="container col-md-10">
+<div class="content">
 
-    <table class="table table-bordered">
+    <table class="pure-table pure-table-bordered">
         <thead>
         <tr class="bg-success">
             <th>Photo</th>
@@ -24,8 +24,12 @@
         </thead>
         <c:forEach items="${carList}" var="car">
             <tr>
-                <td><img src="<c:url value="/resources/photo_cars/${car.carId}.png" /> " alt="image"
-                         style="width: 30%; height: auto"/></td>
+                <td>
+                    <div id="photo-car-in-table">
+                        <img src="<c:url value="/resources/photo_cars/${car.carId}.png" /> " alt="image"/>
+                    </div>
+                </td>
+
                 <td>${car.name}</td>
                 <td>${car.carCapacity}</td>
                     <%--<td>${car.description}</td>--%>
@@ -36,7 +40,8 @@
                 </td>
 
                 <td>
-                    <a href="<spring:url value="/admin/carPersonInventory/editPersonsInCar/${car.carId}"/> "> Edit</a>
+                    <a href="<spring:url value="/admin/carPersonInventory/editPersonsInCar/${car.carId}"/> ">
+                        <i class="fa fa-user-plus fa-2x" style="color: #245580"></i></a>
                 </td>
             </tr>
         </c:forEach>
@@ -50,7 +55,7 @@
     <form:hidden path="description"/>
     <form:hidden path="name"/>
 
-    Name: <strong>${car.name}</strong>
+    <p>Car Name:</p> <strong>${car.name}</strong>
 
     <table>
         <tr>
@@ -64,8 +69,14 @@
 
         <tr>
             <br/>
-            <td align="right"><input type="submit" value="Edit Persons"></td>
+            <td align="right">
+                <div id="function-btn">
+                    <button type="submit" class="button-secondary pure-button-active pure-button"><i class="fa fa-undo  fa-1x" style="color: white"></i> Edit personal</button>
+                </div>
+            </td>
         </tr>
+
+
 
         </form:form>
 

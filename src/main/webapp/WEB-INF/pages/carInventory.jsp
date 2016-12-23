@@ -2,14 +2,15 @@
 <%@include file="/WEB-INF/pages/template/header.jsp"%>
 
 
-<div class="page-header">
-  <h1>Car inventory page</h1>
-  <p class="lead">List of all car</p>
+<div class="header">
+  <h1>Car table</h1>
+
+  <h2>List of all Department cars with crud-functions</h2>
 </div>
 
-<div class="container col-md-11">
+<div class="content">
 
-  <table class="table table-bordered">
+  <table class="pure-table pure-table-bordered">
     <thead>
     <tr class="bg-success">
       <th>Photo</th>
@@ -20,31 +21,50 @@
       <th>Detail</th>
       <th>Delete</th>
       <th>Edit</th>
-      <th>Clear Psns</th>
+      <th style="font-size: 12px">Remove persons</th>
     </tr>
     </thead>
     <c:forEach items="${carList}" var="car">
       <tr>
-        <td><img src="<c:url value="/resources/photo_cars/${car.carId}.png" /> " alt="image" style="width: 30%; height: auto"/> </td>
+        <td>
+          <div id="photo-car-in-table">
+          <img src="<c:url value="/resources/photo_cars/${car.carId}.png" /> " alt="image"/>
+          </div>
+        </td>
         <td>${car.name}</td>
         <td>${car.carCapacity}</td>
-        <td>${car.description}</td>
-
         <td>
-      <c:forEach items="${car.personsInCar}" var="pc">
-        ${pc.firstName} ${pc.lastName}<br/>
-      </c:forEach>
+          <div id="description-in-table">
+            <p>
+        ${car.description}
+            </p>
+          </div>
         </td>
 
-        <td><a href="<spring:url value="/carView/${car.carId}"/> " ><span class="glyphicon glyphicon-info-sign"></span></a></td>
-        <td><a href="<spring:url value="/admin/carInventory/deleteCar/${car.carId}"/> " ><span class="glyphicon glyphicon-remove" style="color: #c12e2a"></span></a></td>
-        <td><a href="<spring:url value="/admin/carInventory/editCar/${car.carId}"/> " ><span class="glyphicon glyphicon-pencil" style="color: #3c763d"></span></a></td>
-        <td><a href="<spring:url value="/admin/carPersonInventory/clearCarPersonal/${car.carId}"/> " ><span class="glyphicon glyphicon-scissors" style="color: darkmagenta"></span></a></td>
+        <td>
+          <div id="personal-in-table">
+            <p>
+            <c:forEach items="${car.personsInCar}" var="pc">
+              ${pc.firstName} ${pc.lastName}<br/>
+            </c:forEach>
+          </p>
+          </div>
+        </td>
+
+        <td><a href="<spring:url value="/carView/${car.carId}"/> " ><i class="fa fa-id-card fa-2x"></i></a></td>
+        <td><a href="<spring:url value="/admin/carInventory/deleteCar/${car.carId}"/> " ><i class="fa fa-times fa-2x" style="color: #c12e2a"></i></a></td>
+        <td><a href="<spring:url value="/admin/carInventory/editCar/${car.carId}"/> " ><i class="fa fa-pencil-square-o fa-2x" style="color: #245580"></i></a></td>
+        <td><a href="<spring:url value="/admin/carPersonInventory/clearCarPersonal/${car.carId}"/> " ><i class="fa fa-scissors fa-2x" style="color: #d58512"></i></a></td>
       </tr>
     </c:forEach>
   </table>
 
-  <a href="<spring:url value="/admin/carInventory/addCar"/> " class="btn btn-primary" > Add car</a>
+  <br/>
+
+  <div id="function-btn">
+    <a href="<spring:url value="/admin/carInventory/addCar"/>"> <button class="button-secondary pure-button-active pure-button"><i class="fa fa-plus-square fa-1x" style="color: white"></i>  Add car</button></a>
+  </div>
+
 
 </div>
 

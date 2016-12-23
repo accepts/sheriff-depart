@@ -36,7 +36,7 @@
 
             <button type="submit" value="LogIn">Login</button>
 
-            <a href="<c:url value="/"/>"><button type="button" id="trash">Home</button></a>
+            <a href="<c:url value="/"/>"><button type="button" id="go-home-btn">Home</button></a>
 
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </div>

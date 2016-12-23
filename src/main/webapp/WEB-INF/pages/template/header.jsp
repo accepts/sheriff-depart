@@ -88,12 +88,6 @@
           <a href="<c:url value="/admin/carPersonInventory"/>" class="pure-menu-link">Car-Persons</a>
         </li>
 
-
-        <c:if test="${not empty pageContext.request.userPrincipal}">
-          <c:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
-            <li class="button-warning pure-button" ><a href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
-          </c:if>
-        </c:if>
       </ul>
     </div>
   </div>

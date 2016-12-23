@@ -54,3 +54,43 @@ Car-Person main table at persons-jsp
     font-size: 20px;
 }
 
+#function-btn{
+    text-align: right;
+}
+
+#personal-in-table{
+    font-size: 10px;
+    color: #204d74;
+}
+
+#description-in-table{
+    font-size: 14px;
+    font-style: italic;
+}
+
+#photo-car-in-table img{
+    width: 180px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

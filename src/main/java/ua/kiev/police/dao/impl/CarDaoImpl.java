@@ -52,13 +52,18 @@ public class CarDaoImpl implements CarDao {
     public void editCar(Car car) {
         Session session = sessionFactory.getCurrentSession();
 
-        if (car.getPersonsInCar() != null){
-            car.setCarCapacity(car.getPersonsInCar().size());
-        } else {
-            car.setCarCapacity(0);
+        if (car.getCarId() != null){
+            if (car.getPersonsInCar() != null){
+                car.setCarCapacity(car.getPersonsInCar().size());
+            } else {
+                car.setCarCapacity(0);
+            }
+
+            session.update(car);
+            session.flush();
+        } else{
+            System.out.println("<--- Error occur in CarDaoImpl");
         }
 
-        session.update(car);
-        session.flush();
     }
 }

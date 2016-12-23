@@ -111,4 +111,10 @@ a.pure-button-selected {
     
             .button-secondary {
                 background: rgb(66, 184, 221); /* this is a light blue */
+                width: 150px;
+            }
+
+            .button-error a{
+                color: white;
+                text-decoration: none;
             }
