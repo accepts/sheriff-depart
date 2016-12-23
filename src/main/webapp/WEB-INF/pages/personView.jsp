@@ -1,32 +1,82 @@
-<%@include file="/WEB-INF/pages/template/header.jsp"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@include file="/WEB-INF/pages/template/header.jsp" %>
 
 
-<div class="page-header">
-    <h1>Officer detail</h1>
-    <p class="lead">Detail person information.</p>
+<div class="header">
+    <h1>Person detail</h1>
+    <h2>Detail information of particular person</h2>
 </div>
 
-<div class="container col-md-10">
+<div class="content">
 
-    <div class="row table-bordered">
-        <div class="col-md-6">
-            <img src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image"/>
-        </div>
+    <table class="pure-table pure-table-bordered">
+        <thead>
+        <tr class="bg-success">
+            <th>Photo</th>
+            <th colspan="2">Info</th>
+        </tr>
+        </thead>
 
-        <div class="col-md-4">
-            <h3>${person.firstName} ${person.lastName}</h3>
-            <p style="color: #398439">${person.rank}</p>
-            <strong>Age:</strong>
-                <p>${person.age}</p>
-            <strong>Characteristic</strong>:
-                <p style="color: #398439">${person.characteristic}</p>
-            <strong>Is in car:</strong>
-                <p>${person.inCar}</p>
-        </div>
-    </div>
+        <tbody>
+        <tr>
+            <td rowspan="5">
+                <div>
+                    <img src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image"
+                         style="width: 200px"/>
+                </div>
+            </td>
 
-    <a href="<c:url value="/persons"/>"> Person list </a>>
+            <td> First and Last name:</td>
+            <td style="color: #222222"><h3>${person.firstName} ${person.lastName}</h3></td>
+
+        </tr>
+
+
+
+        <tr>
+            <td> Rank:</td>
+            <td><p style="color: #761c19">${person.rank}</p></td>
+        </tr>
+
+        <tr>
+            <td> Age:</td>
+            <td style="color: #222222"><p>${person.age}</p></td>
+        </tr>
+
+        <tr>
+            <td> Characteristic</td>
+            <td><p style="color: #245580; font-style: italic;">${person.characteristic}</p></td>
+        </tr>
+
+        <tr>
+            <td> Is in car:</td>
+            <td style="color: #222222"><p>${person.inCar}</p></td>
+        </tr>
+
+        </tbody>
+    </table>
+    <br/>
+
+
+    <%--Return buttons--%>
+
+        <c:if test="${not empty pageContext.request.userPrincipal}">
+        <c:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
+            <a href="<spring:url value="/admin/personInventory"/>">
+                <button class="button-secondary pure-button-active pure-button"> Persons Inventory</button>
+            </a>
+        </c:if>
+    </c:if>
+
+    <c:if test="${empty pageContext.request.userPrincipal}">
+        <a href="<c:url value="/persons"/>">
+            <button class="button-secondary pure-button-active pure-button"> Persons List</button>
+        </a>
+    </c:if>
+
+
 </div>
 
-<%@include file="/WEB-INF/pages/template/footer.jsp"%>
+<%@include file="/WEB-INF/pages/template/footer.jsp" %>
+
 

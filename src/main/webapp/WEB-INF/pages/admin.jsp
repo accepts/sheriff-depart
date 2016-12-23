@@ -42,7 +42,7 @@
 
   <c:if test="${pageContext.request.userPrincipal.name != null }">
   <div id="function-btn">
-    <a href="<c:url value="/j_spring_security_logout"/>"> <button class="button-error pure-button-active pure-button">Logout</button></a>
+    <a href="<c:url value="/j_spring_security_logout"/>"> <button class="button-error pure-button-active pure-button"><i class="fa fa-power-off fa-1x" style="color: white"></i> Logout</button></a>
   </div>
   </c:if>
 

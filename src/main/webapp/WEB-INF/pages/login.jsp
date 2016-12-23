@@ -34,7 +34,7 @@
             <input type="password" id="password" name="password" class="form-control" value="admin" placeholder="Password"/>
 
 
-            <button type="submit" value="LogIn">Login</button>
+            <button type="submit" value="LogIn"> Login</button>
 
             <a href="<c:url value="/"/>"><button type="button" id="go-home-btn">Home</button></a>
 

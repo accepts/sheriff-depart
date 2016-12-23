@@ -18,7 +18,7 @@ public class HomeController {
 
 	@RequestMapping("/help")
 	public String help(){
-		return "del----help";
+		return "help";
 	}
 
 

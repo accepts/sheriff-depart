@@ -19,6 +19,7 @@
   <link href="<c:url value="/resources/css/pure-css/pure-custom.css" />" rel="stylesheet">
 
 
+  <link href="<c:url value="/resources/css/add-edit-pages.css" />" rel="stylesheet">
 
   <link href="<c:url value="/resources/css/font-awesome.min.css" />" rel="stylesheet">
   <%--<link href="<c:url value="/resources/css/login-style.css" />" rel="stylesheet">--%>

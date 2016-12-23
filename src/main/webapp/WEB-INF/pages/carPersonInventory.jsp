@@ -55,23 +55,31 @@
     <form:hidden path="description"/>
     <form:hidden path="name"/>
 
-    <p>Car Name:</p> <strong>${car.name}</strong>
+    <table class="pure-table pure-table-bordered">
 
-    <table>
-        <tr>
+        <tr class="bg-success">
+            <td>Car Name:</td>
             <td>Personal:</td>
+        </tr>
+
+        <tr>
+            <td>
+                <strong style="color: #761c19; font-size: 20px" >${car.name}</strong>
+                <br/>
+                <strong style="color: #245580; font-size: 12px; font-style: italic;" >${car.description}</strong>
+            </td>
             <td>
                 <form:select path="personsInCar" items="${persons}" multiple="multiple" size="5"
-                             itemLabel="firstName" itemValue="personId"/>
+                             itemLabel="lastName" itemValue="personId"/>
             </td>
         </tr>
 
 
         <tr>
             <br/>
-            <td align="right">
+            <td>
                 <div id="function-btn">
-                    <button type="submit" class="button-secondary pure-button-active pure-button"><i class="fa fa-undo  fa-1x" style="color: white"></i> Edit personal</button>
+                    <button type="submit" class="button-secondary pure-button-active pure-button"><i class="fa fa-refresh  fa-1x" style="color: white"></i> Edit personal</button>
                 </div>
             </td>
         </tr>
