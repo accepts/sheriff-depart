@@ -3,7 +3,7 @@
 
 
 <div class="header">
-    <h1>Add new Officer</h1>
+    <h1>Add a new Officer</h1>
 
     <h2>Enter require information into corresponding fields .</h2>
 </div>
@@ -19,20 +19,20 @@
 
 
             <label for="name"><span>First Name <span class="required">*</span></span>
-                <form:errors path="firstName" cssStyle="color: darkred"/>
                 <form:input path="firstName" id="name" class="input-field"/>
+                <form:errors path="firstName" cssStyle="color: darkred"/>
             </label>
 
 
             <label for="lastname"><span>Last Name <span class="required">*</span></span>
-                <form:errors path="lastName" cssStyle="color: darkred"/>
                 <form:input path="lastName" id="lastname" class="input-field"/>
+                <form:errors path="lastName" cssStyle="color: darkred"/>
             </label>
 
 
             <label for="age"><span>Age: <span class="required">*</span></span>
-                <form:errors path="age" cssStyle="color: darkred"/>
                 <form:input path="age" id="age" class="input-field"/>
+                <form:errors path="age" cssStyle="color: darkred"/>
             </label>
 
 
@@ -44,17 +44,16 @@
 
 
             <label for="characteristic"><span>Characteristic:</span>
-                <form:errors path="characteristic" cssStyle="color: darkred"/>
                 <form:input path="characteristic" id="characteristic" class="input-field"/>
+                <form:errors path="characteristic" cssStyle="color: darkred"/>
             </label>
+
 
 
             <label for="personImage"><span>Upload Picture:</span>
                 <form:input id="personImage" path="personImage" type="file" class="input-field"/>
             </label>
 
-
-            <%--<label><span>&nbsp;</span><input type="submit" value="Add Person"/></label>--%>
             <label>
                 <span>&nbsp;</span><input type="submit" value="Add Person"/>
             </label>
@@ -62,7 +61,6 @@
             <label>
                 <br/>
                 <br/>
-
                 <div class="form-style-2-heading"></div>
             </label>
 

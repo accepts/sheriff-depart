@@ -104,6 +104,12 @@ body{
 }
 
 #go-home-btn:hover{
-    background: #00CC00;
+    background: #31b0d5;
     color: #eeeeee;
+}
+
+#list-persons-in-car{
+    font-size: 14px;
+    font-style: italic;
+    color: #122b40;
 }
