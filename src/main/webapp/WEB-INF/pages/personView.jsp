@@ -63,14 +63,14 @@
         <c:if test="${not empty pageContext.request.userPrincipal}">
         <c:if test="${pageContext.request.isUserInRole('ROLE_ADMIN')}">
             <a href="<spring:url value="/admin/personInventory"/>">
-                <button class="button-secondary pure-button-active pure-button"> Persons Inventory</button>
+                <button class="button-secondary pure-button-active pure-button"><i class="fa fa-reply fa-1x" style="color: white"></i> Persons list</button>
             </a>
         </c:if>
     </c:if>
 
     <c:if test="${empty pageContext.request.userPrincipal}">
         <a href="<c:url value="/persons"/>">
-            <button class="button-secondary pure-button-active pure-button"> Persons List</button>
+            <button class="button-secondary pure-button-active pure-button"><i class="fa fa-reply fa-1x" style="color: white"></i> Persons List</button>
         </a>
     </c:if>
 
