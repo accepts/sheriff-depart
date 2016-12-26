@@ -12,14 +12,13 @@
 </script>
 
 
+<div class="header">
+    <h1>Cars - Persons tables</h1>
 
-    <div class="header">
-        <h1>Cars - Persons tables</h1>
+    <h2>List of all Department personal with their status (on car or on foot)</h2>
+</div>
 
-        <h2>List of all Department personal with their status (on car or on foot)</h2>
-    </div>
-
-    <div class="content">
+<div class="content">
 
 
     <c:forEach items="${carList}" var="car" varStatus="carNumber">
@@ -33,10 +32,20 @@
 
             <tr>
                 <td>
-                    <p><img src="<c:url value="/resources/photo_cars/${car.carId}.png" /> " alt="image" style="width: 80%; height: auto"/> </p>
-                    <p>Car name: </p><p class="name-of-entity">${car.name}</p>
-                    <p>Car capacity: </p><p class="name-of-entity">${car.carCapacity}</p>
-                    <p>Car description: </p><p class="name-of-entity">${car.description}</p>
+                    <p><img src="<c:url value="/resources/photo_cars/${car.carId}.png" /> " alt="image"
+                            style="width: 80%; height: auto"/></p>
+
+                    <p>Car name: </p>
+
+                    <p class="name-of-entity">${car.name}</p>
+
+                    <p>Car capacity: </p>
+
+                    <p class="name-of-entity">${car.carCapacity}</p>
+
+                    <p>Car description: </p>
+
+                    <p class="name-of-entity">${car.description}</p>
                 </td>
 
                 <td>
@@ -55,12 +64,15 @@
                             <tr>
                                 <td>${personNumber.count}</td>
                                 <td>
-                                    <p><img src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image"  style="width: 60%; height: auto" /> </p>
+                                    <p><img src="<c:url value="/resources/photo_person/${person.personId}.png" /> "
+                                            alt="image" style="width: 60%; height: auto"/></p>
                                 </td>
 
                                 <td>
                                     <p>${person.firstName}</p>
+
                                     <p>${person.lastName}</p>
+
                                     <p>${person.rank}</p>
                                 </td>
 
@@ -77,33 +89,33 @@
     </c:forEach>
 
 
-
-      <table class="pure-table pure-table-bordered pure-table-all">
+    <table class="pure-table pure-table-bordered pure-table-all">
         <thead>
         <tr>
-          <th>Photo</th>
-          <th>First name</th>
-          <th>Last Name</th>
-          <th>Rank</th>
-          <th>In Car</th>
-          <th>Detail</th>
+            <th>Photo</th>
+            <th>First name</th>
+            <th>Last Name</th>
+            <th>Rank</th>
+            <th>In Car</th>
+            <th>Detail</th>
         </tr>
         </thead>
         <c:forEach items="${personList}" var="person">
-          <tr>
-            <td><img class="pure-pic-table" src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image" /> </td>
-            <td>${person.firstName}</td>
-            <td>${person.lastName}</td>
-            <td>${person.rank}</td>
-            <td>${person.inCar}</td>
-            <td><a href="<spring:url value="/personView/${person.personId}"/> " ><span class="glyphicon glyphicon-info-sign"></span></a></td>
-          </tr>
+            <tr>
+                <td><img class="pure-pic-table" src="<c:url value="/resources/photo_person/${person.personId}.png" /> "
+                         alt="image"/></td>
+                <td>${person.firstName}</td>
+                <td>${person.lastName}</td>
+                <td>${person.rank}</td>
+                <td>${person.inCar}</td>
+                <td><a href="<spring:url value="/personView/${person.personId}"/> "><span
+                        class="glyphicon glyphicon-info-sign"></span></a></td>
+            </tr>
         </c:forEach>
-      </table>
+    </table>
 
 
-
-<h2 class="table-title">Table of all policeman</h2>
+    <h2 class="table-title">Table of all policeman</h2>
 
 
     <table class="pure-table pure-table-bordered">
@@ -120,19 +132,21 @@
         <c:forEach items="${personList}" var="person">
             <tr>
                 <c:if test="${person.inCar ne false}">
-                    <td><img class="pure-pic-table" src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image" /></td>
+                    <td><img class="pure-pic-table"
+                             src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image"/></td>
                     <td>${person.firstName}</td>
                     <td>${person.lastName}</td>
                     <td>${person.rank}</td>
                     <td>${person.inCar}</td>
-                    <td><a href="<spring:url value="/personView/${person.personId}"/> "><i class="fa fa-id-card fa-2x"></i></a></td>
+                    <td><a href="<spring:url value="/personView/${person.personId}"/> "><i
+                            class="fa fa-id-card fa-2x"></i></a></td>
 
                 </c:if>
             </tr>
         </c:forEach>
 
 
-        <tr class="pure-table pure-table-bordered" >
+        <tr class="pure-table pure-table-bordered">
             <th colspan="6">Persons on foot</th>
         </tr>
 
@@ -147,7 +161,8 @@
         <c:forEach items="${personList}" var="person">
             <tr>
                 <c:if test="${person.inCar ne true}">
-                    <td><img class="pure-pic-table" src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image" /></td>
+                    <td><img class="pure-pic-table"
+                             src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image"/></td>
                     <td>${person.firstName}</td>
                     <td>${person.lastName}</td>
                     <td>${person.rank}</td>
@@ -175,37 +190,3 @@
 
 
 
-
-
-
-
-
-
-<%--
-    <h2>Persons on foot</h2>
-
-   <table class="pure-table pure-table-bordered">
-        <thead>
-        <tr class="bg-warning">
-            <th>Photo</th>
-            <th>First name</th>
-            <th>Last Name</th>
-            <th>Rank</th>
-            <th>In Car</th>
-            <th>Detail</th>
-        </tr>
-        </thead>
-        <c:forEach items="${personList}" var="person">
-            <tr>
-                <c:if test="${person.inCar ne true}">
-                    <td><img class="pure-pic-table" src="<c:url value="/resources/photo_person/${person.personId}.png" /> " alt="image" /></td>
-                    <td>${person.firstName}</td>
-                    <td>${person.lastName}</td>
-                    <td>${person.rank}</td>
-                    <td>${person.inCar}</td>
-                    <td><a href="<spring:url value="/personView/${person.personId}"/> ">
-                        <i class="fa fa-id-card fa-2x"></i></a></td>
-                </c:if>
-            </tr>
-        </c:forEach>
-    </table>--%>

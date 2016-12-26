@@ -2,8 +2,6 @@
 <%@include file="/WEB-INF/pages/template/header.jsp"%>
 
 
-
-
 <div class="header">
   <h1>Persons table</h1>
 
@@ -11,7 +9,6 @@
 </div>
 
 <div class="content">
-
 
   <table class="pure-table pure-table-bordered">
     <thead>
@@ -44,13 +41,9 @@
 
   <div id="function-btn">
   <a href="<spring:url value="/admin/personInventory/addPerson"/>"> <button class="button-secondary pure-button-active pure-button"><i class="fa fa-plus-square fa-1x" style="color: white"></i> Add person</button></a>
-  <%--<a href="<spring:url value="/admin/personInventory/addPerson"/> " class="btn btn-primary" > Add person</a>--%>
   </div>
 
 </div>
-
-
-
 
 
 <%@include file="/WEB-INF/pages/template/footer.jsp"%>

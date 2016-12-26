@@ -64,9 +64,9 @@
 
         <tr>
             <td>
-                <strong style="color: #761c19; font-size: 20px" >${car.name}</strong>
+                <strong style="color: #761c19; font-size: 20px">${car.name}</strong>
                 <br/>
-                <strong style="color: #245580; font-size: 12px; font-style: italic;" >${car.description}</strong>
+                <strong style="color: #245580; font-size: 12px; font-style: italic;">${car.description}</strong>
             </td>
             <td>
                 <form:select path="personsInCar" items="${persons}" multiple="multiple" size="5"
@@ -79,16 +79,14 @@
             <br/>
             <td>
                 <div id="function-btn">
-                    <button type="submit" class="button-secondary pure-button-active pure-button"><i class="fa fa-refresh  fa-1x" style="color: white"></i> Edit personal</button>
+                    <button type="submit" class="button-secondary pure-button-active pure-button"><i
+                            class="fa fa-refresh  fa-1x" style="color: white"></i> Edit personal
+                    </button>
                 </div>
             </td>
         </tr>
 
-
-
         </form:form>
-
-
 </div>
 
 <%@include file="/WEB-INF/pages/template/footer.jsp" %>

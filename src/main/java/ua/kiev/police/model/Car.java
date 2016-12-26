@@ -108,33 +108,5 @@ public class Car {
         }
     }
 
-
-
-
 }
 
-
-
-
-    /*
-    @Entity
-public class Car {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer carId;
-
-    @NotEmpty
-    private String name;
-
-    private int carCapacity = 0;
-
-    private String description;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "car", fetch = FetchType.EAGER)
-    private List<Person> personsInCar;
-
-    @Transient
-    private MultipartFile carImage;
-
-     */
