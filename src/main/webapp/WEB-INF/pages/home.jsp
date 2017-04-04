@@ -2,7 +2,7 @@
 
 
 <div class="header">
-    <h1>Tween Peaks Sheriff Department</h1>
+    <h1>Twin Peaks Sheriff Department</h1>
 
     <h2>Police department project with private crud-area</h2>
 </div>
@@ -41,7 +41,7 @@
         <li>Assign specific persons for corresponding car</li>
     </ul>
 
-    <h2 class="content-subhead">Ignorance about Tween Peaks?</h2>
+    <h2 class="content-subhead">Ignorance about Twin Peaks?</h2>
 
     <div class="pure-g">
         <div class="pure-u-1-4">
