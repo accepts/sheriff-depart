@@ -45,9 +45,8 @@ public class AdminCarController {
     }
 
 
-
     @RequestMapping("/admin/carInventory")
-    public String carInventory(Model model){
+    public String carInventory(Model model) {
         List<Car> carList = carService.getAllCars();
         model.addAttribute("carList", carList);
         return "carInventory";
@@ -55,7 +54,7 @@ public class AdminCarController {
 
 
     @RequestMapping("/admin/carInventory/addCar")
-    public String addCar(Model model){
+    public String addCar(Model model) {
         Car car = new Car();
         model.addAttribute("car", car);
         return "carAdd";
@@ -63,8 +62,8 @@ public class AdminCarController {
 
     @RequestMapping(value = "/admin/carInventory/addCar", method = RequestMethod.POST)
     public String addCarPost(@Valid @ModelAttribute("car") Car car,
-                             BindingResult result, HttpServletRequest request){
-        if (result.hasErrors()){
+                             BindingResult result, HttpServletRequest request) {
+        if (result.hasErrors()) {
             return "carAdd";
         }
 
@@ -85,10 +84,10 @@ public class AdminCarController {
     }
 
     @RequestMapping("/admin/carInventory/deleteCar/{carId}")
-    public String deleteCar(@PathVariable int carId, Model model, HttpServletRequest request){
+    public String deleteCar(@PathVariable int carId, Model model, HttpServletRequest request) {
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
         path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\photo_cars\\" + carId + ".png");
-        if (Files.exists(path)){
+        if (Files.exists(path)) {
             try {
                 Files.delete(path);
             } catch (IOException e) {
@@ -101,7 +100,7 @@ public class AdminCarController {
 
 
     @RequestMapping("/admin/carInventory/editCar/{carId}")
-    public String editCar(@PathVariable("carId") int carId, Model model){
+    public String editCar(@PathVariable("carId") int carId, Model model) {
         Car car = carService.getCarById(carId);
         model.addAttribute(car);
         return "carEdit";
@@ -110,8 +109,8 @@ public class AdminCarController {
 
     @RequestMapping(value = "/admin/carInventory/editCar/", method = RequestMethod.POST)
     public String editCar(@Valid @ModelAttribute("car") Car car,
-                          BindingResult result, Model model, HttpServletRequest request){
-        if (result.hasErrors()){
+                          BindingResult result, Model model, HttpServletRequest request) {
+        if (result.hasErrors()) {
             System.out.println("<----Result HAS ERROR: " + result.getAllErrors());
             return "carEdit";
         }
@@ -135,7 +134,7 @@ public class AdminCarController {
 
 
     @RequestMapping(value = "/admin/carPersonInventory/clearCarPersonal/{carId}")
-    public String clearAllPersonalFromCar(@PathVariable int carId){
+    public String clearAllPersonalFromCar(@PathVariable int carId) {
         Car car = carService.getCarById(carId);
         car.clearAllPersonsFromCar();
         carService.editCar(car);
@@ -143,7 +142,6 @@ public class AdminCarController {
         //carPersonService.removeAllPersonsFromCar(carId);
         return "redirect:/admin/carInventory";
     }
-
 
 
     //    Exception handler methods
@@ -165,7 +163,6 @@ public class AdminCarController {
         binder.registerCustomEditor(Car.class, "car", new CarInitBinderWrapper(carService));
         binder.registerCustomEditor(List.class, "personsInCar", new PersonListInitBinderWrapper(List.class, personService));
     }
-
 
 
 }

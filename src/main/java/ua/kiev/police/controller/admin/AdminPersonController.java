@@ -33,7 +33,7 @@ public class AdminPersonController {
 
 
     @RequestMapping("/admin/personInventory")
-    public String personInventory(Model model){
+    public String personInventory(Model model) {
         List<Person> personList = personService.getAllPersons();
         model.addAttribute("personList", personList);
         return "personInventory";
@@ -41,7 +41,7 @@ public class AdminPersonController {
 
 
     @RequestMapping("/admin/personInventory/addPerson")
-    public String addPerson(Model model){
+    public String addPerson(Model model) {
         Person person = new Person();
         person.setRank(Rank.OFFICER);
         model.addAttribute("person", person);
@@ -51,8 +51,8 @@ public class AdminPersonController {
 
     @RequestMapping(value = "/admin/personInventory/addPerson", method = RequestMethod.POST)
     public String addPersonPost(@Valid @ModelAttribute("person") Person person,
-                                BindingResult result, HttpServletRequest request){
-        if (result.hasErrors()){
+                                BindingResult result, HttpServletRequest request) {
+        if (result.hasErrors()) {
             return "personAdd";
         }
 
@@ -75,10 +75,10 @@ public class AdminPersonController {
 
 
     @RequestMapping("/admin/personInventory/deletePerson/{personId}")
-    public String deletePerson(@PathVariable int personId, Model model, HttpServletRequest request){
+    public String deletePerson(@PathVariable int personId, Model model, HttpServletRequest request) {
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
         path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\photo_person\\" + personId + ".png");
-        if (Files.exists(path)){
+        if (Files.exists(path)) {
             try {
                 Files.delete(path);
             } catch (IOException e) {
@@ -92,7 +92,7 @@ public class AdminPersonController {
 
 
     @RequestMapping("/admin/personInventory/editPerson/{personId}")
-    public String editPerson(@PathVariable("personId") int personId, Model model){
+    public String editPerson(@PathVariable("personId") int personId, Model model) {
         Person person = personService.getPersonById(personId);
         model.addAttribute(person);
         return "personEdit";
@@ -100,8 +100,8 @@ public class AdminPersonController {
 
 
     @RequestMapping(value = "/admin/personInventory/editPerson/", method = RequestMethod.POST)
-    public String editPerson(@Valid @ModelAttribute("person") Person person, BindingResult result, Model model, HttpServletRequest request){
-        if (result.hasErrors()){
+    public String editPerson(@Valid @ModelAttribute("person") Person person, BindingResult result, Model model, HttpServletRequest request) {
+        if (result.hasErrors()) {
             return "personEdit";
         }
         MultipartFile personImage = person.getPersonImage();

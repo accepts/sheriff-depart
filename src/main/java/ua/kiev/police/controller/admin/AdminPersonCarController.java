@@ -81,13 +81,11 @@ public class AdminPersonCarController {
     }
 
 
-
     @InitBinder
     public void initBinder(ServletRequestDataBinder binder) {
         binder.registerCustomEditor(Car.class, "car", new CarInitBinderWrapper(carService));
         binder.registerCustomEditor(List.class, "personsInCar", new PersonListInitBinderWrapper(List.class, personService));
     }
-
 
 
 }

@@ -1,5 +1,4 @@
-
-<%@include file="/WEB-INF/pages/template/header.jsp"%>
+<%@include file="/WEB-INF/pages/template/header.jsp" %>
 
 
 <div class="header">
@@ -16,15 +15,16 @@
     </p>
     Back-end:
     <ul>
-    <li> <code>Spring, Spring Web-MVC, Spring Security, Spring ORM, Maven, LogBack with slf4j, Apache commons (for file upload);</code> </li>
-    <li> <code> Database: PostgreSQL, Hibernate (+ Validator);</code> </li>
+        <li><code>Spring, Spring Web-MVC, Spring Security, Spring ORM, Maven, LogBack with slf4j, Apache commons (for
+            file upload);</code></li>
+        <li><code> Database: PostgreSQL, Hibernate (+ Validator);</code></li>
     </ul>
-        Front-end:
+    Front-end:
     <ul>
         <li><code>Yahoo PureCSS, FontAwesome icons.</code></li>
         <li><code>JSP pages with JSTL and Spring Tags library</code></li>
         <li><code>jQuery (DataTables plugin)</code></li>
-   </ul>
+    </ul>
 
 
     <h2 class="content-subhead">Let's look on site-map in brief: </h2>
@@ -65,16 +65,23 @@
 
     <p style="font-style: italic">
         Twin Peaks is an American television serial drama created by Mark Frost and David Lynch.
-        Its pilot episode was broadcast on April 8, 1990 on ABC. Seven more episodes were produced, and the series was renewed for a second season that aired until June 10, 1991. Short begining plot:
-        In 1989, logger Pete Martell discovers a naked corpse wrapped in plastic on the bank of a river outside the town of Twin Peaks, Washington. When Sheriff Harry S. Truman, his deputies, and Dr. Will Hayward arrive, the body is identified as homecoming queen Laura Palmer. A badly injured second girl, Ronette Pulaski, is discovered in a fugue state.
-        FBI Special Agent Dale Cooper is called in to investigate. Cooper's initial examination of Laura's body reveals a tiny typed letter "R" inserted under her fingernail. Cooper informs the community that Laura's death matches the signature of a killer who murdered another girl in southwestern Washington the previous year, and that evidence indicates the killer lives in Twin Peaks.
+        Its pilot episode was broadcast on April 8, 1990 on ABC. Seven more episodes were produced, and the series was
+        renewed for a second season that aired until June 10, 1991. Short begining plot:
+        In 1989, logger Pete Martell discovers a naked corpse wrapped in plastic on the bank of a river outside the town
+        of Twin Peaks, Washington. When Sheriff Harry S. Truman, his deputies, and Dr. Will Hayward arrive, the body is
+        identified as homecoming queen Laura Palmer. A badly injured second girl, Ronette Pulaski, is discovered in a
+        fugue state.
+        FBI Special Agent Dale Cooper is called in to investigate. Cooper's initial examination of Laura's body reveals
+        a tiny typed letter "R" inserted under her fingernail. Cooper informs the community that Laura's death matches
+        the signature of a killer who murdered another girl in southwestern Washington the previous year, and that
+        evidence indicates the killer lives in Twin Peaks.
         The authorities discover that Laura has been living a double life.
 
     </p>
 </div>
 
 
-<%@include file="/WEB-INF/pages/template/footer.jsp"%>
+<%@include file="/WEB-INF/pages/template/footer.jsp" %>
 
 
 

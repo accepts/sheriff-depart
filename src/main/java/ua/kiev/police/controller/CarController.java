@@ -21,14 +21,14 @@ public class CarController {
 
 
     @RequestMapping("/cars")
-    public String getCars(Model model){
+    public String getCars(Model model) {
         List<Car> carList = carService.getAllCars();
         model.addAttribute("carList", carList);
         return "cars";
     }
 
     @RequestMapping(value = "/carView/{carId}")
-    public String carView(@PathVariable int carId, Model model){
+    public String carView(@PathVariable int carId, Model model) {
         Car car = carService.getCarById(carId);
         model.addAttribute(car);
         return "carView";

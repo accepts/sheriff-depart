@@ -110,7 +110,7 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!--For transformation object into handy logging-JSOn-->
+        <!--For transformation object into handy logging-JSON-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>

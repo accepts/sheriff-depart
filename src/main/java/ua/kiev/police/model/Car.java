@@ -99,11 +99,9 @@ public class Car {
                 '}';
     }
 
-
     // Addition methods
-
-    public void clearAllPersonsFromCar(){
-        if (personsInCar != null || personsInCar.size() != 0){
+    public void clearAllPersonsFromCar() {
+        if (personsInCar != null || personsInCar.size() != 0) {
             personsInCar.clear();
         }
     }

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "PERSON")
-public class Person{
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,11 +29,10 @@ public class Person{
     @Column(name = "RANK")
     private Rank rank;
 
-    //TODO make this field Transient
     @Column(name = "IS_IN_CAR")
     private boolean isInCar;
 
-    @Column(name = "CHARACTERISTIC", columnDefinition="TEXT")
+    @Column(name = "CHARACTERISTIC", columnDefinition = "TEXT")
     private String characteristic;
 
     @Min(value = 18, message = "Person too young for working")
@@ -106,7 +105,7 @@ public class Person{
     }
 
     public void setIsInCar() {
-        if (carList.size() == 0 || carList == null){
+        if (carList.size() == 0 || carList == null) {
             this.isInCar = false;
         } else {
             this.isInCar = true;

@@ -2,6 +2,7 @@
 package ua.kiev.police.model.enums;
 
 public enum Rank {
+
     OFFICER("Officer"),
     DETECTIVE("Detective"),
     SERGEANT("Sergeant"),
@@ -28,6 +29,7 @@ public enum Rank {
         return name();
     }
 
-    public void setValue(String value) {}
+    public void setValue(String value) {
+    }
 
 }

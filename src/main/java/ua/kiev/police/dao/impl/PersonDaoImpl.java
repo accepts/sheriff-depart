@@ -18,6 +18,7 @@ public class PersonDaoImpl implements PersonDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+
     @Override
     public void addPerson(Person person) {
         Session session = sessionFactory.getCurrentSession();
@@ -25,12 +26,14 @@ public class PersonDaoImpl implements PersonDao {
         session.flush();
     }
 
+
     @Override
     public Person getPersonById(int personId) {
         Session session = sessionFactory.getCurrentSession();
         Person person = (Person) session.get(Person.class, personId);
         return person;
     }
+
 
     @Override
     public List<Person> getAllPersons() {
@@ -41,19 +44,21 @@ public class PersonDaoImpl implements PersonDao {
         return persons;
     }
 
+
     @Override
     public void deletePerson(int id) {
         Session session = sessionFactory.getCurrentSession();
         session.delete(getPersonById(id));
     }
 
+
     @Override
     public void editPerson(Person person) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(person);
         session.flush();
-
     }
+
 }
 
 

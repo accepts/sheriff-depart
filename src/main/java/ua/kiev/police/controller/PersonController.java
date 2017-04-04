@@ -27,7 +27,7 @@ public class PersonController {
 
 
     @RequestMapping("/persons")
-    public String getPersons(Model model){
+    public String getPersons(Model model) {
         List<Person> personList = personService.getAllPersons();
         model.addAttribute("personList", personList);
 
@@ -37,7 +37,7 @@ public class PersonController {
     }
 
     @RequestMapping("/personView/{personId}")
-    public String personView(@PathVariable int personId, Model model){
+    public String personView(@PathVariable int personId, Model model) {
         Person person = personService.getPersonById(personId);
         model.addAttribute(person);
         return "personView";

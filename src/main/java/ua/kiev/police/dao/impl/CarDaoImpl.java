@@ -26,12 +26,14 @@ public class CarDaoImpl implements CarDao {
         session.flush();
     }
 
+
     @Override
     public Car getCarById(int id) {
         Session session = sessionFactory.getCurrentSession();
         Car car = (Car) session.get(Car.class, id);
         return car;
     }
+
 
     @Override
     public List<Car> getAllCars() {
@@ -42,18 +44,20 @@ public class CarDaoImpl implements CarDao {
         return cars;
     }
 
+
     @Override
     public void deleteCar(int id) {
         Session session = sessionFactory.getCurrentSession();
         session.delete(getCarById(id));
     }
 
+
     @Override
     public void editCar(Car car) {
         Session session = sessionFactory.getCurrentSession();
 
-        if (car.getCarId() != null){
-            if (car.getPersonsInCar() != null){
+        if (car.getCarId() != null) {
+            if (car.getPersonsInCar() != null) {
                 car.setCarCapacity(car.getPersonsInCar().size());
             } else {
                 car.setCarCapacity(0);
@@ -61,9 +65,9 @@ public class CarDaoImpl implements CarDao {
 
             session.update(car);
             session.flush();
-        } else{
+        } else {
             System.out.println("<--- Error occur in CarDaoImpl");
         }
-
     }
+
 }

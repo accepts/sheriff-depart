@@ -59,18 +59,18 @@
 
 
       <ul class="pure-menu-list">
-        <li class="pure-menu-item"><a href="<c:url value="/persons"/>" class="pure-menu-link">List All</a></li>
+        <li class="pure-menu-item"><a href="<c:url value="/persons"/>" class="pure-menu-link"><i class="fa fa-users  fa-1x" style="color: #dddddd"></i>  List All</a></li>
 
         <li class="pure-menu-item"><a href="#" class="pure-menu-link">==============</a></li>
 
-        <li class="pure-menu-item"><a href="<c:url value="/admin"/>" class="pure-menu-link">Admin</a></li>
+        <li class="pure-menu-item"><a href="<c:url value="/admin"/>" class="pure-menu-link"><i class="fa fa-cogs fa-1x" style="color: #dddddd"></i>  Admin</a></li>
 
-        <li class="pure-menu-item"><a href="<c:url value="/admin/personInventory"/>" class="pure-menu-link">Persons</a></li>
+        <li class="pure-menu-item"><a href="<c:url value="/admin/personInventory"/>" class="pure-menu-link"><i class="fa fa-user-circle fa-1x" style="color: #dddddd"></i>  Persons</a></li>
 
-        <li class="pure-menu-item"><a href="<c:url value="/admin/carInventory"/>" class="pure-menu-link">Cars</a></li>
+        <li class="pure-menu-item"><a href="<c:url value="/admin/carInventory"/>" class="pure-menu-link"><i class="fa fa-car fa-1x" style="color: #dddddd"></i>  Cars</a></li>
 
         <li class="pure-menu-item" class="menu-item-divided pure-menu-selected">
-          <a href="<c:url value="/admin/carPersonInventory"/>" class="pure-menu-link">Car-Persons</a>
+          <a href="<c:url value="/admin/carPersonInventory"/>" class="pure-menu-link"><i class="fa fa-address-card-o  fa-1x" style="color: #dddddd"></i>  Car-Persons</a>
         </li>
 
       </ul>
