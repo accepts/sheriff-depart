@@ -23,7 +23,7 @@ In this project, I created two basic entities that bounded to each other: **cars
 > - Assign specific persons for corresponding car
 
 ---
-#### **Essential information for lanch this project**
+#### **Essential information for launch this project**
 DDL Code of PostgreSQL database for creating security table ([JDBC Security Database Schema][1]). Or you can use InMemory authentication appointed at *applicationContext.xml* file.
 **User table:**
 >CREATE TABLE users
@@ -47,7 +47,7 @@ CREATE UNIQUE INDEX ix_auth_username ON authorities (username, authority);
 INSERT INTO authorities (username, authority) VALUES ('admin', 'ROLE_ADMIN');
 
 ------
-For correct saving pictures, you need specify in InteliJ IDEA Tomacat output directory settings:
+For correct saving pictures, you need specify in InteliJ IDEA Tomcat output directory settings:
 >Project Structure --> Artifacts --> Output Directory
 [path to project]\[project_folder]\src\main\webapp
 For Example:
