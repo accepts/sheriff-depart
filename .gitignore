@@ -4,7 +4,7 @@
 .idea
 out
 
-# Working tempoprary trash
+# Working tempoprary trash.
 target
 log
 src/main/webapp/WEB-INF/classes
