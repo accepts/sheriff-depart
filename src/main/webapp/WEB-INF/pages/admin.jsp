@@ -49,37 +49,3 @@
 </div>
 
 <%@include file="/WEB-INF/pages/template/footer.jsp"%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%--  <h3>
-    <a href="<c:url value="/admin/personInventory"/> " >Person inventory </a>
-  </h3>
-
-  <br/>
-
-  <h3>
-    <a href="<c:url value="/admin/carInventory"/> " >Car inventory </a>
-  </h3>
-
-  <br/>
-
-  <h3>
-    <a href="<c:url value="/admin/carPersonInventory"/> " >CAR-PERSONAL </a>
-  </h3>--%>
-
-<%--<div class="pure-u-1-4">--%>
-<%--<img class="pure-img-responsive" src="<c:url value="/resources/images/tp-car.jpg" />"--%>
-<%--alt="Mountain">--%>
-<%--</div>--%>

@@ -7,12 +7,12 @@ Police department project with private CRUD-area
 WHAT TECHNOLOGY I WOULD LIKE TO IMPLEMENT IN THIS PROJECT?
 ----------------------------------------------------------
 
-The aim of this project is study and mounted on practice java web-technologies and next frameworks:
+The aim of this project is to study and mount on practice java web-technologies and next frameworks:
 
     Back-end:
-    Spring, Spring Web-MVC, Spring Security, Spring ORM, Maven, LogBack with slf4j, Apache commons (for file upload);
+    Spring Core, Spring Web-MVC, Spring Security, Spring ORM, Maven, LogBack with slf4j, Apache commons (for file upload);
     Database:
-    - PostgreSQL, Hibernate (+ Validator);
+    - PostgreSQL, Hibernate (with Validator);
     Front-end:
     - Yahoo PureCSS, CSS, FontAwesome icons.
     - JSP pages with JSTL and Spring Tags library
@@ -20,20 +20,21 @@ The aim of this project is study and mounted on practice java web-technologies a
 
 Let’s look on site structure in brief:
 
-In this project, I created two basic entities that bounded to each other: cars and persons.
+In this project I created two basic entities which are bound to each other: cars and persons.
 Correspondingly, an administrator can:
 
         - View detailed information about a person\car
         - Added person\car
         - Edit the person\car
         - Delete the person\car
-        - Assign specific persons for corresponding car
+        - Assign specific persons for corresponding car, or leave person without automobile
 
 
 ESSENTIAL INFORMATION FOR LAUNCH THIS PROJECT
 ---------------------------------------------
 
-DDL Code of PostgreSQL database for creating security table (JDBC Security Database Schema). Or you can use InMemory authentication appointed at applicationContext.xml file.
+DDL Code of PostgreSQL database for creating security table (JDBC Security Database Schema).
+Or you can use InMemory authentication appointed at applicationContext.xml file.
 User table:
 
     CREATE TABLE users

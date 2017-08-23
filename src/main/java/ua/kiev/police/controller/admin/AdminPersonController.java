@@ -60,7 +60,8 @@ public class AdminPersonController {
 
         MultipartFile personImage = person.getPersonImage();
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\photo_person\\" + person.getPersonId() + ".png");
+        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\photo_person\\"
+                + person.getPersonId() + ".png");
         if (personImage != null && !personImage.isEmpty()) {
             try {
                 personImage.transferTo(new File(path.toString()));
@@ -100,13 +101,15 @@ public class AdminPersonController {
 
 
     @RequestMapping(value = "/admin/personInventory/editPerson/", method = RequestMethod.POST)
-    public String editPerson(@Valid @ModelAttribute("person") Person person, BindingResult result, Model model, HttpServletRequest request) {
+    public String editPerson(@Valid @ModelAttribute("person") Person person, BindingResult result,
+                             Model model, HttpServletRequest request) {
         if (result.hasErrors()) {
             return "personEdit";
         }
         MultipartFile personImage = person.getPersonImage();
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\photo_person\\" + person.getPersonId() + ".png");
+        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\photo_person\\"
+                + person.getPersonId() + ".png");
         if (personImage != null && !personImage.isEmpty()) {
             try {
                 personImage.transferTo(new File(path.toString()));
